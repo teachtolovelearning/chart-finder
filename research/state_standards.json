@@ -1,0 +1,1073 @@
+[
+  {
+    "state": "Alabama",
+    "abbr": "AL",
+    "ela": {
+      "name": "2021 Alabama Course of Study: English Language Arts",
+      "type": "own"
+    },
+    "math": {
+      "name": "2019 Alabama Course of Study: Mathematics",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "2023 Alabama Course of Study: Science",
+      "type": "ngss-based"
+    },
+    "note": "ELA rewritten 2021 (science of reading); 2023 science COS is three-dimensional and replaced the 2015 framework-based COS.",
+    "sources": [
+      "https://www.alabamaachieves.org/content-areas-specialty/english-language-arts/",
+      "https://www.alabamaachieves.org/wp-content/uploads/2021/03/2019-Alabama-Mathematics-COS-Rev.-6-2021.pdf",
+      "https://www.hmhco.com/states/alabama-science",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Alaska",
+    "abbr": "AK",
+    "ela": {
+      "name": "Alaska English/Language Arts Standards",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Alaska Mathematics Standards",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Alaska Science Standards (2019)",
+      "type": "ngss-based"
+    },
+    "note": "2012 ELA/math standards closely follow CCSS though Alaska never formally adopted CCSS.",
+    "sources": [
+      "https://education.alaska.gov/standards/english-language-arts",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Arizona",
+    "abbr": "AZ",
+    "ela": {
+      "name": "Arizona English Language Arts Standards (2016)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Arizona Mathematics Standards (2016)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Arizona Science Standards (2018)",
+      "type": "ngss-based"
+    },
+    "note": "2016 revision of CCSS kept its structure and codes.",
+    "sources": [
+      "https://www.azed.gov/standards-practices/k-12standards/english-language-arts-standards",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Arkansas",
+    "abbr": "AR",
+    "ela": {
+      "name": "Arkansas K-12 English Language Arts Standards (2023)",
+      "type": "own"
+    },
+    "math": {
+      "name": "Arkansas Mathematics Standards (2023)",
+      "type": "own"
+    },
+    "science": {
+      "name": "Arkansas K-12 Science Standards",
+      "type": "ngss"
+    },
+    "note": "2023 ELA/math rewrites use new strands and codes (e.g., 3.RC.7.RL, 3.NPV.1) and were described as removing remaining Common Core.",
+    "sources": [
+      "https://dese.ade.arkansas.gov/Offices/learning-services/curriculum-support/english-language-arts-standards-and-courses",
+      "https://adecm.ade.arkansas.gov/Attachments/AR_Revised_K-12_ELA_Standards_3.2023_075956.pdf",
+      "https://www.commonplanner.com/standards/arkansas-2e62be85/mathematics-standards/grade-3-d46fb365",
+      "https://progresslearning.com/news-blog/new-arkansas-math-ela-standards-now-live-on-progress-learning/",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "California",
+    "abbr": "CA",
+    "ela": {
+      "name": "California Common Core State Standards: ELA/Literacy",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "California Common Core State Standards: Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "California Next Generation Science Standards",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Colorado",
+    "abbr": "CO",
+    "ela": {
+      "name": "Colorado Academic Standards: Reading, Writing, and Communicating (2020)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Colorado Academic Standards: Mathematics (2020)",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Colorado Academic Standards: Science (2020)",
+      "type": "ngss-based"
+    },
+    "note": "ELA reorganized into Colorado format; math retains CCSS.",
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Connecticut",
+    "abbr": "CT",
+    "ela": {
+      "name": "Connecticut Core Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Connecticut Core Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Connecticut NGSS",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Delaware",
+    "abbr": "DE",
+    "ela": {
+      "name": "Common Core State Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Common Core State Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Next Generation Science Standards",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "District of Columbia",
+    "abbr": "DC",
+    "ela": {
+      "name": "Common Core State Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Common Core State Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Next Generation Science Standards",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Florida",
+    "abbr": "FL",
+    "ela": {
+      "name": "B.E.S.T. Standards for English Language Arts",
+      "type": "own"
+    },
+    "math": {
+      "name": "B.E.S.T. Standards for Mathematics",
+      "type": "own"
+    },
+    "science": {
+      "name": "Next Generation Sunshine State Standards (NGSSS) for Science",
+      "type": "own"
+    },
+    "note": "Science still the 2008 NGSSS; proposed B.E.S.T. science standards would begin 2028-29 (K-2).",
+    "sources": [
+      "https://wusf.org/text/education/2026-09-30/evolution-climate-change-missing-from-floridas-new-k-12-science-standards",
+      "https://www.fldoe.org/newsroom/latest-news/florida-department-of-education-launches-b-e-s-t-science-standards-listening-tour.stml",
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html"
+    ]
+  },
+  {
+    "state": "Georgia",
+    "abbr": "GA",
+    "ela": {
+      "name": "Georgia K-12 English Language Arts Standards",
+      "type": "own"
+    },
+    "math": {
+      "name": "Georgia K-12 Mathematics Standards",
+      "type": "own"
+    },
+    "science": {
+      "name": "Georgia Standards of Excellence (GSE) for Science",
+      "type": "ngss-based"
+    },
+    "note": "New ELA standards replaced GSE in 2025-26; new math in 2023-24; NSTA counts GSE science as framework-based but GaDOE calls them Georgia-developed.",
+    "sources": [
+      "https://progresslearning.com/news-blog/new-georgia-ela-standards-25-26/",
+      "https://www.gadoe.org/Curriculum-Instruction-and-Assessment/Curriculum-and-Instruction/Pages/GA-K12-Math-Standards.aspx",
+      "https://www.gadoe.org:443/External-Affairs-and-Policy/communications/Documents/Science%20Standards%20Fact%20Sheet.pdf",
+      "https://www.nsta.org/how-are-standards-different"
+    ],
+    "uncertain": true
+  },
+  {
+    "state": "Hawaii",
+    "abbr": "HI",
+    "ela": {
+      "name": "Hawaii Common Core Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Hawaii Common Core Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Next Generation Science Standards",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Idaho",
+    "abbr": "ID",
+    "ela": {
+      "name": "Idaho Content Standards for ELA/Literacy (2022)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Idaho Content Standards for Mathematics (2022)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Idaho Content Standards for Science",
+      "type": "ngss-based"
+    },
+    "note": "2022 standards replaced CCSS by updating and streamlining it.",
+    "sources": [
+      "https://www.sde.idaho.gov/communications/archives/2022/03-24-2022-Supt-Ybarra-lawmakers-celebrate-new-content-standards-look-at-next-steps.pdf",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Illinois",
+    "abbr": "IL",
+    "ela": {
+      "name": "Illinois Learning Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Illinois Learning Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Illinois Learning Standards for Science (NGSS)",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Indiana",
+    "abbr": "IN",
+    "ela": {
+      "name": "Indiana Academic Standards for English/Language Arts (2023)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Indiana Academic Standards for Mathematics (2023)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Indiana Academic Standards for Science (2023)",
+      "type": "ngss-based"
+    },
+    "note": "2014 CCSS replacement, streamlined 2023; content tracks CCSS closely but uses Indiana codes.",
+    "sources": [
+      "https://www.in.gov/doe/files/Indiana-Board-of-Education-Approves-Future-Focused-Academic-Standards.pdf",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Iowa",
+    "abbr": "IA",
+    "ela": {
+      "name": "Iowa Core Standards for Literacy",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Iowa Core Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Iowa Core Science Standards (NGSS)",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Kansas",
+    "abbr": "KS",
+    "ela": {
+      "name": "Kansas College and Career Ready Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Kansas College and Career Ready Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Kansas College and Career Ready Standards for Science (NGSS)",
+      "type": "ngss"
+    },
+    "note": "Minor Kansas revisions to CCSS (2017).",
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Kentucky",
+    "abbr": "KY",
+    "ela": {
+      "name": "Kentucky Academic Standards for Reading and Writing (2019)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Kentucky Academic Standards for Mathematics (2019)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Kentucky Academic Standards for Science",
+      "type": "ngss"
+    },
+    "note": "Revised Reading and Writing standards begin fall 2026; revised math planned for 2027-28.",
+    "sources": [
+      "https://content.govdelivery.com/accounts/KYDE/bulletins/4174283",
+      "https://www.education.ky.gov/curriculum/standards/revision/Documents/Kentucky_Academic_Standards_Review_and_Implementation_Timeline.pdf",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Louisiana",
+    "abbr": "LA",
+    "ela": {
+      "name": "Louisiana Student Standards for ELA (2016)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Louisiana Student Standards for Mathematics (2016)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Louisiana Student Standards for Science (2017)",
+      "type": "ngss-based"
+    },
+    "note": "New ELA standards approved April 2026 take effect 2027-28; math under review.",
+    "sources": [
+      "https://doe.louisiana.gov/about/news-releases/release/2026/04/13/louisiana-strengthens-classroom-focus-on-the-science-of-reading--grammar--and-cursive-writing",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Maine",
+    "abbr": "ME",
+    "ela": {
+      "name": "Maine Learning Results: English Language Arts",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Maine Learning Results: Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Maine Learning Results: Science (NGSS)",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Maryland",
+    "abbr": "MD",
+    "ela": {
+      "name": "Maryland College and Career Ready Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Maryland College and Career Ready Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Maryland NGSS",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Massachusetts",
+    "abbr": "MA",
+    "ela": {
+      "name": "2017 Massachusetts Curriculum Framework for ELA and Literacy",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "2017 Massachusetts Curriculum Framework for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "2016 Massachusetts Science and Technology/Engineering Framework",
+      "type": "ngss-based"
+    },
+    "note": "2017 frameworks are CCSS with Massachusetts additions.",
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Michigan",
+    "abbr": "MI",
+    "ela": {
+      "name": "Michigan K-12 Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Michigan K-12 Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Michigan K-12 Science Standards (NGSS)",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Minnesota",
+    "abbr": "MN",
+    "ela": {
+      "name": "2020 Minnesota K-12 Academic Standards in ELA",
+      "type": "own"
+    },
+    "math": {
+      "name": "2007 Minnesota K-12 Academic Standards in Mathematics",
+      "type": "own"
+    },
+    "science": {
+      "name": "2019 Minnesota K-12 Academic Standards in Science",
+      "type": "ngss-based"
+    },
+    "note": "2020 ELA standards fully implemented 2025-26 (replacing CCSS-based 2010 ELA); 2022 math standards start 2027-28.",
+    "sources": [
+      "https://content.govdelivery.com/accounts/MNMDE/bulletins/412b91b",
+      "https://progresslearning.com/news-blog/minnesota-ela-standards-update/",
+      "https://www.nsta.org/how-are-standards-different"
+    ],
+    "uncertain": true
+  },
+  {
+    "state": "Mississippi",
+    "abbr": "MS",
+    "ela": {
+      "name": "Mississippi College- and Career-Readiness Standards for ELA",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Mississippi College- and Career-Readiness Standards for Mathematics",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Mississippi College- and Career-Readiness Standards for Science (2018)",
+      "type": "ngss-based"
+    },
+    "note": "2016 revision of CCSS; board began readopting it in 2025.",
+    "sources": [
+      "https://www.mpe.org/news/691377/State-Board-of-Education-Holds-January-2025-Meeting.htm",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Missouri",
+    "abbr": "MO",
+    "ela": {
+      "name": "Missouri Learning Standards: ELA (2016)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Missouri Learning Standards: Mathematics (2016)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Missouri Learning Standards: Science (2016)",
+      "type": "ngss-based"
+    },
+    "note": "2016 replacement for CCSS that keeps much of its content.",
+    "sources": [
+      "https://dese.mo.gov/college-career-readiness/curriculum/missouri-learning-standards",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Montana",
+    "abbr": "MT",
+    "ela": {
+      "name": "Montana Common Core Standards for ELA and Literacy",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Montana Common Core Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Montana Science Content Standards (2016)",
+      "type": "ngss-based"
+    },
+    "note": "Revised math standards take effect July 2026 and revised ELA July 2027.",
+    "sources": [
+      "https://archive.legmt.gov/content/Committees/Interim/2025-2026/EDIC/Sept-9-2025/ContentStandardsUpdate-OPI-September-2025-EDIC.pdf",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Nebraska",
+    "abbr": "NE",
+    "ela": {
+      "name": "Nebraska English Language Arts Standards (2021)",
+      "type": "own"
+    },
+    "math": {
+      "name": "Nebraska Mathematics Standards (2022)",
+      "type": "own"
+    },
+    "science": {
+      "name": "Nebraska Science Standards (2024)",
+      "type": "ngss-based"
+    },
+    "note": "Never adopted CCSS; 2024 science standards are built on the NRC Framework.",
+    "sources": [
+      "https://www.education.ne.gov/contentareastandards/",
+      "https://www.education.ne.gov/wp-content/uploads/2024/12/Nebraska-Science-Standards_12-17-24-Update-002.pdf"
+    ]
+  },
+  {
+    "state": "Nevada",
+    "abbr": "NV",
+    "ela": {
+      "name": "Nevada Academic Content Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Nevada Academic Content Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Nevada Academic Content Standards for Science (NGSS)",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "New Hampshire",
+    "abbr": "NH",
+    "ela": {
+      "name": "New Hampshire College and Career Ready Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "New Hampshire College and Career Ready Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "New Hampshire Science Standards (NGSS)",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "New Jersey",
+    "abbr": "NJ",
+    "ela": {
+      "name": "New Jersey Student Learning Standards for ELA",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "New Jersey Student Learning Standards for Mathematics",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "New Jersey Student Learning Standards for Science (NGSS)",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "New Mexico",
+    "abbr": "NM",
+    "ela": {
+      "name": "Common Core State Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Common Core State Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "New Mexico STEM Ready! Science Standards",
+      "type": "ngss"
+    },
+    "note": "Science is NGSS plus six New Mexico-specific standards.",
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "New York",
+    "abbr": "NY",
+    "ela": {
+      "name": "New York State Next Generation ELA Learning Standards",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "New York State Next Generation Mathematics Learning Standards",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "New York State P-12 Science Learning Standards",
+      "type": "ngss-based"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "North Carolina",
+    "abbr": "NC",
+    "ela": {
+      "name": "NC Standard Course of Study for ELA (2017)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "NC Standard Course of Study for Mathematics (2023)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "NC Standard Course of Study for Science (2023)",
+      "type": "ngss-based"
+    },
+    "note": "Revised ELA standards begin 2027-28; 2023 science standards use the NRC Framework's three dimensions.",
+    "sources": [
+      "https://www.ednc.org/inside-north-carolinas-ela-standards-revision-and-implementation-process/",
+      "https://wsfcs.k12.nc.us/page/new-2023-science-standards-informational-page"
+    ]
+  },
+  {
+    "state": "North Dakota",
+    "abbr": "ND",
+    "ela": {
+      "name": "North Dakota English Language Arts and Literacy Content Standards",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "North Dakota Mathematics Content Standards",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "North Dakota Science Content Standards",
+      "type": "ngss-based"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Ohio",
+    "abbr": "OH",
+    "ela": {
+      "name": "Ohio's Learning Standards for ELA (2017)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Ohio's Learning Standards for Mathematics (2017)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Ohio's Learning Standards for Science (2018)",
+      "type": "own"
+    },
+    "note": "Revised K-8 ELA standards adopted 2026 start 2027-28.",
+    "sources": [
+      "https://education.ohio.gov/Topics/Learning-in-Ohio/English-Language-Art/English-Language-Arts-Standards",
+      "https://education.ohio.gov/Topics/Learning-in-Ohio/Mathematics/Ohio-s-Learning-Standards-in-Mathematics",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Oklahoma",
+    "abbr": "OK",
+    "ela": {
+      "name": "Oklahoma Academic Standards for ELA (2021)",
+      "type": "own"
+    },
+    "math": {
+      "name": "Oklahoma Academic Standards for Mathematics (2022)",
+      "type": "own"
+    },
+    "science": {
+      "name": "Oklahoma Academic Standards for Science",
+      "type": "ngss-based"
+    },
+    "note": "Repealed CCSS in 2014; math content overlaps CCSS but uses Oklahoma strands and codes. 2025 science update is nearly identical to 2020.",
+    "sources": [
+      "https://oklahoma.gov/education/services/standards-learning/oklahoma-academic-standards/new-standards.html",
+      "https://ncse.ngo/oklahoma-adopts-new-state-science-standards",
+      "https://www.nsta.org/how-are-standards-different"
+    ],
+    "uncertain": true
+  },
+  {
+    "state": "Oregon",
+    "abbr": "OR",
+    "ela": {
+      "name": "Oregon English Language Arts and Literacy Standards",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Oregon Mathematics Standards (2021)",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Oregon Science Standards (NGSS)",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Pennsylvania",
+    "abbr": "PA",
+    "ela": {
+      "name": "PA Core Standards for ELA",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "PA Core Standards for Mathematics",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Pennsylvania STEELS Standards",
+      "type": "ngss-based"
+    },
+    "note": "STEELS science standards fully in place for 2025-26.",
+    "sources": [
+      "https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/curriculum/science/science-standards.html",
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html"
+    ]
+  },
+  {
+    "state": "Rhode Island",
+    "abbr": "RI",
+    "ela": {
+      "name": "Common Core State Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Common Core State Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Next Generation Science Standards",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "South Carolina",
+    "abbr": "SC",
+    "ela": {
+      "name": "2024 South Carolina College- and Career-Ready ELA Standards",
+      "type": "own"
+    },
+    "math": {
+      "name": "2025 South Carolina College- and Career-Ready Mathematics Standards",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "South Carolina College- and Career-Ready Science Standards (2021)",
+      "type": "ngss-based"
+    },
+    "note": "New ELA (approved Jan 2023) and math (approved Dec 2023) standards.",
+    "sources": [
+      "https://ed.sc.gov/instruction/standards-learning/english-language-arts/standards",
+      "https://ed.sc.gov/instruction/standards/mathematics/standards",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "South Dakota",
+    "abbr": "SD",
+    "ela": {
+      "name": "South Dakota English Language Arts Standards (2018)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "South Dakota Mathematics Standards (2018)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "South Dakota Science Standards (2015)",
+      "type": "ngss-based"
+    },
+    "note": "Revised phonics-focused ELA standards adopted April 2025 become available in fall 2026.",
+    "sources": [
+      "https://doe.sd.gov/contentstandards/documents/StandardsTimeline-0225.pdf",
+      "https://www.kornradio.com/latestnews/education-board-votes-to-finalize-embrace-of-phonics-based-reading-instruction-for-south-dakota",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Tennessee",
+    "abbr": "TN",
+    "ela": {
+      "name": "Tennessee Academic Standards for ELA",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Tennessee Academic Standards for Mathematics (2021)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Tennessee Academic Standards for Science (2022)",
+      "type": "ngss-based"
+    },
+    "note": "Revised science standards started 2025-26; new ELA standards start 2029-30.",
+    "sources": [
+      "https://www.tn.gov/education/districts/academic-standards/",
+      "https://www.tn.gov/sbe/committees-and-initiatives/standards-review/math.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Texas",
+    "abbr": "TX",
+    "ela": {
+      "name": "Texas Essential Knowledge and Skills (TEKS) for ELAR",
+      "type": "own"
+    },
+    "math": {
+      "name": "TEKS for Mathematics",
+      "type": "own"
+    },
+    "science": {
+      "name": "TEKS for Science",
+      "type": "own"
+    },
+    "note": "Revised science TEKS (adopted 2021) took effect in 2024-25.",
+    "sources": [
+      "https://tea.texas.gov/academics/curriculum-standards/teks-review/112a-twowith-header.pdf",
+      "https://sboe.texas.gov/state-board-of-education/sboe-2021/sboe-2021-november/november-17-2021-committee-of-the-full-board-item-2",
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html"
+    ]
+  },
+  {
+    "state": "Utah",
+    "abbr": "UT",
+    "ela": {
+      "name": "Utah State Standards for P-12 English Language Arts (2023)",
+      "type": "own"
+    },
+    "math": {
+      "name": "Utah Core Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Utah Science with Engineering Education (SEEd) Standards",
+      "type": "ngss-based"
+    },
+    "note": "2023 ELA rewrite uses three strands with new codes (e.g., 3.R.2); math under revision for 2027-28.",
+    "sources": [
+      "https://schools.Utah.gov/curr/imc/_imcutahcorestandards_/EnglishLanguageArtsStandards.pdf",
+      "https://www.schools.utah.gov/curr/utahcorestandards/Standards%20Revision%20Timeline%2011.4.25.pdf.pdf",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Vermont",
+    "abbr": "VT",
+    "ela": {
+      "name": "Common Core State Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Common Core State Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Next Generation Science Standards",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Virginia",
+    "abbr": "VA",
+    "ela": {
+      "name": "2024 English Standards of Learning",
+      "type": "own"
+    },
+    "math": {
+      "name": "2023 Mathematics Standards of Learning",
+      "type": "own"
+    },
+    "science": {
+      "name": "2018 Science Standards of Learning",
+      "type": "own"
+    },
+    "note": "Never adopted CCSS; 2024 English SOL in place for 2025-26.",
+    "sources": [
+      "https://doe.virginia.gov/teaching-learning-assessment/k-12-standards-instruction/english-reading-literacy/standards-of-learning/2024-english-standards-of-learning",
+      "https://www.doe.virginia.gov/teaching-learning-assessment/k-12-standards-instruction/science/standards-of-learning/review-revision-of-the-2018-science-standards-of-learning",
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html"
+    ]
+  },
+  {
+    "state": "Washington",
+    "abbr": "WA",
+    "ela": {
+      "name": "Washington K-12 Learning Standards for ELA",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Washington K-12 Learning Standards for Mathematics",
+      "type": "ccss"
+    },
+    "science": {
+      "name": "Washington State K-12 Science Learning Standards (NGSS)",
+      "type": "ngss"
+    },
+    "sources": [
+      "https://www.edweek.org/ew/section/multimedia/map-states-academic-standards-common-core-or.html",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "West Virginia",
+    "abbr": "WV",
+    "ela": {
+      "name": "West Virginia College- and Career-Readiness Standards for ELA",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "West Virginia College- and Career-Readiness Standards for Mathematics",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "West Virginia College- and Career-Readiness Standards for Science",
+      "type": "ngss-based"
+    },
+    "sources": [
+      "https://wvde.us/academics/content-standards-policies",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Wisconsin",
+    "abbr": "WI",
+    "ela": {
+      "name": "Wisconsin Standards for ELA (2020)",
+      "type": "ccss-based"
+    },
+    "math": {
+      "name": "Wisconsin Standards for Mathematics (2021)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Wisconsin Standards for Science (2017)",
+      "type": "ngss-based"
+    },
+    "sources": [
+      "https://dpi.wi.gov/ela/standards",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  },
+  {
+    "state": "Wyoming",
+    "abbr": "WY",
+    "ela": {
+      "name": "Wyoming ELA Content and Performance Standards (2012)",
+      "type": "ccss"
+    },
+    "math": {
+      "name": "Wyoming Mathematics Content and Performance Standards (2023)",
+      "type": "ccss-based"
+    },
+    "science": {
+      "name": "Wyoming Science Content and Performance Standards (2023)",
+      "type": "ngss-based"
+    },
+    "note": "2023 math and science audits took effect in 2025-26.",
+    "sources": [
+      "https://edu.wyoming.gov/wp-content/uploads/2024/10/State-Standards-Adoption-and-Implementation-Timeline-2010-2025.pdf",
+      "https://www.nsta.org/how-are-standards-different"
+    ]
+  }
+]

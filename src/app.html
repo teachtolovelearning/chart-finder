@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anchor Chart Club Resource Guide</title>
+<link rel="icon" type="image/png" href="__FAVICON__">
+<link rel="apple-touch-icon" href="__FAVICON__">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* App shell like Airtable: top bar, filter sidebar with live counts, results table, detail drawer. Brand colors only mark subjects, grades and the main action. */
+  --bg: #FBFAFC;
+  --panel: #FFFFFF;
+  --side: #F6F5F9;
+  --line: #E7E5EE;
+  --line-strong: #D6D3E0;
+  --ink: #1E1B2E;
+  --muted: #6E6A80;
+  --faint: #9B97AC;
+  --accent: #6385F7;
+  --accent-soft: #EEF2FE;
+  --accent-ink: #3C5AD0;
+  --pink: #E462AA;
+  --pink-ink: #B83A82;
+  --font: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --radius: 8px;
+  --shadow: 0 1px 2px rgba(30, 27, 46, .06), 0 8px 24px rgba(30, 27, 46, .08);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 13.5px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.app { display: grid; grid-template-rows: auto 1fr; height: 100%; }
+.topbar { display: flex; align-items: center; gap: 16px; padding: 10px 20px; background: var(--panel); border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.brand img { height: 58px; width: auto; display: block; }
+.brand .divider { width: 1px; height: 36px; background: var(--line); }
+.brand h1 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; }
+.brand p { margin: 0; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.topbar .spacer { flex: 1; }
+.statewrap { position: relative; flex: none; align-self: center; }
+.statebtn { display: flex; align-items: center; gap: 6px; height: 38px; border: 1.5px solid var(--line-strong); background: var(--panel); border-radius: var(--radius); padding: 0 6px 0 12px; }
+.statebtn.unset { border-color: var(--accent); background: var(--accent-soft); }
+.statebtn.unset label { color: var(--accent-ink); font-weight: 600; }
+.statebtn.unset select { color: var(--accent-ink); }
+.coach { position: absolute; top: calc(100% + 12px); right: 0; width: 290px; background: var(--ink); color: #fff; border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); z-index: 15; font-size: 13px; display: none; }
+.coach.show { display: block; }
+.coach::before { content: ""; position: absolute; top: -6px; right: 40px; width: 12px; height: 12px; background: var(--ink); transform: rotate(45deg); }
+.coach b { display: block; font-size: 14px; margin-bottom: 4px; }
+.coach button { margin-top: 10px; border: 0; background: #fff; color: var(--ink); border-radius: 6px; padding: 5px 12px; font-weight: 600; font-size: 12.5px; }
+@media (prefers-reduced-motion: no-preference) { .coach.show { animation: pop .25s ease-out; } @keyframes pop { from { transform: translateY(-4px); opacity: .6; } to { transform: none; opacity: 1; } } }
+.statebtn label { font-size: 12px; line-height: 1; color: var(--muted); white-space: nowrap; }
+.statebtn select { border: 0; background: transparent; font-weight: 600; font-size: 13px; padding: 0 2px; height: 30px; line-height: 30px; max-width: 190px; cursor: pointer; }
+.statebtn select:focus-visible { outline: none; }
+.statebtn:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.cta { background: var(--pink); color: #fff; border: 0; border-radius: var(--radius); padding: 9px 14px; font-weight: 600; font-size: 13px; text-decoration: none; white-space: nowrap; }
+.cta:hover { background: var(--pink-ink); }
+
+.body { display: grid; grid-template-columns: 252px 1fr; min-height: 0; }
+
+.side { background: var(--side); border-right: 1px solid var(--line); overflow-y: auto; padding: 14px 12px 24px; }
+.side h2 { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 14px 8px 6px; display: flex; justify-content: space-between; align-items: center; }
+.side h2:first-child { margin-top: 2px; }
+.side h2 button { border: 0; background: none; color: var(--accent-ink); font-size: 11px; font-weight: 600; text-transform: none; letter-spacing: 0; padding: 0; }
+.facet { display: grid; gap: 1px; }
+.opt { display: flex; align-items: center; gap: 9px; width: 100%; border: 0; background: transparent; border-radius: 6px; padding: 6px 8px; text-align: left; font-size: 13px; }
+.opt:hover { background: #ECEAF2; }
+.opt[aria-pressed="true"] { background: var(--panel); box-shadow: 0 0 0 1px var(--line-strong); font-weight: 600; }
+.opt .n { margin-left: auto; font-size: 12px; color: var(--faint); font-variant-numeric: tabular-nums; font-weight: 500; }
+.opt[disabled] { opacity: .4; cursor: default; }
+.opt[disabled]:hover { background: transparent; }
+.dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.gbadge { width: 22px; height: 22px; border-radius: 5px; display: inline-grid; place-items: center; font-size: 11.5px; font-weight: 700; background: var(--panel); border: 1px solid var(--line-strong); border-top: 4px solid var(--gc); flex-shrink: 0; line-height: 1; }
+.topicsearch { width: 100%; border: 1px solid var(--line-strong); border-radius: 6px; padding: 6px 8px; font-size: 12.5px; background: var(--panel); margin: 0 0 4px; }
+.topics { max-height: 300px; overflow-y: auto; }
+.toggle { display: flex; align-items: center; gap: 10px; padding: 6px 8px; font-size: 13px; cursor: pointer; border-radius: 6px; }
+.toggle:hover { background: #ECEAF2; }
+.toggle input { accent-color: var(--accent); width: 15px; height: 15px; }
+.side .note { font-size: 12px; color: var(--muted); margin: 8px 8px 0; }
+
+.main { display: grid; grid-template-rows: auto auto 1fr; min-width: 0; min-height: 0; }
+.toolbar { display: flex; align-items: center; gap: 10px; padding: 14px 20px 10px; flex-wrap: wrap; }
+.search { position: relative; flex: 1; min-width: 240px; max-width: 640px; }
+.search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--faint); }
+#q { width: 100%; height: 40px; border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 0 64px 0 38px; background: var(--panel); font-size: 14px; }
+#q:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+#q::placeholder { color: var(--faint); }
+#q::-webkit-search-cancel-button { display: none; }
+.kbd { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 11px; color: var(--faint); border: 1px solid var(--line-strong); border-radius: 4px; padding: 0 5px; background: var(--bg); }
+#clear { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: var(--bg); color: var(--muted); border-radius: 4px; padding: 2px 8px; display: none; font-size: 12px; font-weight: 600; }
+.count { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.count b { color: var(--ink); font-weight: 600; }
+.sort { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.sort select { border: 1px solid var(--line-strong); border-radius: 6px; background: var(--panel); padding: 5px 8px; font-size: 12.5px; color: var(--ink); }
+.mobilefilters { display: none; }
+
+.pills { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 20px 10px; align-items: center; }
+.pills:empty { display: none; }
+.fpill { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-soft); color: var(--accent-ink); border: 0; border-radius: 999px; padding: 4px 6px 4px 11px; font-size: 12.5px; font-weight: 500; }
+.fpill span { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; }
+.fpill:hover span { background: rgba(60, 90, 208, .14); }
+.clearall { border: 0; background: none; color: var(--muted); font-size: 12.5px; text-decoration: underline; padding: 4px; }
+
+.tablewrap { overflow: auto; padding: 0 20px 24px; min-height: 0; }
+table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+thead th { position: sticky; top: 0; z-index: 2; background: #F9F8FB; text-align: left; font-size: 11.5px; font-weight: 600; color: var(--muted); letter-spacing: .02em; padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+thead th:first-child { border-top-left-radius: var(--radius); }
+thead th:last-child { border-top-right-radius: var(--radius); }
+tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr { cursor: pointer; }
+tbody tr:hover td { background: #FAF9FD; }
+tbody tr.sel td { background: var(--accent-soft); }
+tbody tr.divider { cursor: default; }
+tbody tr.divider td { background: #F9F8FB; color: var(--muted); font-size: 12px; font-weight: 600; padding: 8px 12px; }
+tbody tr.divider:hover td { background: #F9F8FB; }
+.cline { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.cname { font-weight: 600; font-size: 13.5px; }
+.ctopic { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.subj { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; padding: 2px 9px 2px 7px; border-radius: 999px; background: var(--sbg); color: var(--sink); white-space: nowrap; }
+.subj::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--sc); }
+.codes { display: flex; flex-wrap: wrap; gap: 4px; }
+.code { font-size: 11.5px; font-weight: 600; font-variant-numeric: tabular-nums; border: 1px solid var(--line-strong); border-radius: 5px; padding: 1px 6px; background: var(--panel); white-space: nowrap; }
+.code.hit { background: #FFF3B0; border-color: #E9CF4A; }
+.more { font-size: 11.5px; color: var(--muted); padding: 1px 4px; }
+.none { font-size: 12px; color: var(--faint); }
+.gbadge.wide { width: auto; padding: 0 5px; }
+.openlink { font-size: 12px; font-weight: 500; color: var(--accent-ink); text-decoration: none; white-space: nowrap; opacity: .85; }
+.openlink:hover { opacity: 1; text-decoration: underline; }
+th.colgrade, td.colgrade, th.colsubj, td.colsubj { width: 1%; white-space: nowrap; }
+th.colstd, td.colstd { width: 1%; }
+td.colstd .codes { flex-wrap: nowrap; }
+th.colexit, td.colexit { width: 1%; text-align: center; padding-left: 8px; padding-right: 14px; }
+th.colexit { font-size: 11px; }
+.xcheck { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: #E3F5EC; color: #1F7A51; font-size: 11px; font-weight: 700; }
+.exit { color: #1F7A51; font-weight: 600; font-size: 12px; white-space: nowrap; }
+mark { background: #FFF3B0; color: inherit; border-radius: 2px; padding: 0 1px; }
+.loadmore[hidden] { display: none; }
+.loadmore { display: block; margin: 12px auto 0; border: 1px solid var(--line-strong); background: var(--panel); border-radius: var(--radius); padding: 8px 16px; font-weight: 600; }
+.empty { text-align: center; padding: 48px 20px; color: var(--muted); background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.empty h3 { color: var(--ink); margin: 0 0 6px; font-size: 16px; font-weight: 600; }
+.empty button { margin-top: 12px; border: 1px solid var(--line-strong); background: var(--panel); border-radius: 6px; padding: 6px 12px; font-weight: 600; }
+
+.scrim { position: fixed; inset: 0; background: rgba(30, 27, 46, .18); z-index: 20; display: none; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(500px, 100%); background: var(--panel); box-shadow: var(--shadow); border-left: 1px solid var(--line); z-index: 21; display: none; flex-direction: column; }
+.open .scrim { display: block; }
+.open .drawer { display: flex; }
+.dhead { padding: 16px 20px 14px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
+.dtop { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.dhead h2 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; text-wrap: balance; }
+.iconbtn { border: 1px solid var(--line); background: var(--panel); border-radius: 6px; width: 30px; height: 30px; display: grid; place-items: center; color: var(--muted); flex-shrink: 0; }
+.iconbtn:hover { background: var(--bg); color: var(--ink); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.tag { font-size: 12px; padding: 2px 8px; border-radius: 5px; background: #F1F0F5; color: var(--muted); font-weight: 500; }
+.dbody { padding: 16px 20px 24px; overflow-y: auto; display: grid; gap: 18px; align-content: start; flex: 1; }
+.sec h3 { margin: 0 0 8px; font-size: 11.5px; font-weight: 600; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.match { border: 0; cursor: pointer; font-family: inherit; font-size: 11px; letter-spacing: .02em; text-transform: none; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.match.exact { background: #E3F5EC; color: #1F7A51; }
+.match.close { background: #FFF4D6; color: #8A5A00; }
+.match.ref { background: #EEEAF6; color: #5B4E86; }
+.match.none { background: #F1F0F5; color: var(--muted); }
+.stdlist { display: grid; gap: 8px; }
+.std { border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; }
+.std .c { font-weight: 600; font-size: 13px; font-variant-numeric: tabular-nums; }
+.std .t { color: #3E3A50; font-size: 13px; margin-top: 2px; }
+.explain { font-size: 12.5px; color: var(--muted); margin: 8px 0 0; }
+.formats { display: flex; flex-wrap: wrap; gap: 6px; }
+.fmt { border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; font-size: 12.5px; background: var(--bg); }
+details.other { border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 6px; }
+details.other summary { padding: 9px 12px; cursor: pointer; font-weight: 500; font-size: 13px; }
+details.other .stdlist { padding: 0 12px 12px; }
+.dfoot { padding: 12px 20px; border-top: 1px solid var(--line); display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+.btn2 { border: 1px solid var(--line-strong); background: var(--panel); border-radius: var(--radius); padding: 8px 14px; font-weight: 600; font-size: 13px; }
+.btn2:hover { background: var(--bg); }
+.btn2.ok { border-color: #1F8A5B; color: #1F7A51; background: #E3F5EC; }
+
+.modal { position: fixed; inset: 0; z-index: 30; display: none; place-items: center; background: rgba(30, 27, 46, .3); padding: 20px; }
+.modal.show { display: grid; }
+.modal .box { background: var(--panel); border-radius: 12px; box-shadow: var(--shadow); max-width: 560px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 20px 22px; }
+.modal h2 { margin: 0 0 8px; font-size: 17px; font-weight: 600; }
+.modal p, .modal li { color: #3E3A50; }
+.modal ul { padding-left: 0; list-style: none; display: grid; gap: 10px; }
+.modal li { display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: start; }
+.modal .fine { font-size: 12px; color: var(--muted); }
+.linkish { border: 0; background: none; color: var(--accent-ink); font-weight: 600; font-size: 12px; padding: 0; text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .body { grid-template-columns: 1fr; }
+  .side { position: fixed; inset: 0 auto 0 0; width: min(320px, 88vw); z-index: 25; transform: translateX(-102%); transition: transform .18s ease; box-shadow: var(--shadow); }
+  .filters-open .side { transform: none; }
+  .filters-open .scrim { display: block; }
+  .mobilefilters { display: inline-flex; border: 1px solid var(--line-strong); background: var(--panel); border-radius: var(--radius); padding: 8px 12px; font-weight: 600; }
+  .brand p, .brand .divider { display: none; }
+  .topbar { flex-wrap: wrap; }
+  .topbar .spacer { display: none; }
+  .statewrap { order: 3; width: 100%; }
+  .statebtn { width: 100%; }
+  .coach { left: 0; right: auto; }
+  .coach::before { left: 40px; right: auto; }
+  .statebtn select { max-width: none; flex: 1; }
+  .sort { margin-left: 0; }
+  .colexit { display: none; }
+}
+@media (max-width: 620px) {
+  thead { display: none; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  tbody tr { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  tbody td { padding: 2px 0; border: 0; }
+  td.colgrade, td.colsubj { display: inline-block; width: auto; margin-right: 6px; vertical-align: middle; }
+
+  .tablewrap { padding: 0 12px 20px; }
+  .toolbar { padding: 12px; }
+  .pills { padding: 0 12px 10px; }
+  .brand img { height: 44px; }
+  .cta { padding: 8px 10px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <header class="topbar">
+    <div class="brand">
+      <img src="__LOGO__" alt="The Anchor Chart Club" width="144" height="58">
+      <div class="divider"></div>
+      <div><h1>Chart Finder</h1><p>Every chart, every standard, every grade</p></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="statewrap">
+      <div class="statebtn" id="statebtn">
+        <label for="state">Standards for</label>
+        <select id="state"><option value="">Choose your state</option></select>
+      </div>
+      <div class="coach" id="coach" role="dialog" aria-labelledby="coachTitle"><b id="coachTitle">Start here</b>Choose your state and every chart shows the standard codes your state uses. We'll remember it for next time.<br><button type="button" id="coachOk">Got it</button></div>
+    </div>
+    <a class="cta" href="https://membership.anchorchartclub.com">Open my library</a>
+  </header>
+
+  <div class="body">
+    <aside class="side" id="side" aria-label="Filters">
+      <h2>Grade</h2>
+      <div class="facet" id="fGrade"></div>
+      <h2>Subject</h2>
+      <div class="facet" id="fSubj"></div>
+      <h2><span>Topic</span><button type="button" id="topicClear" hidden>Clear</button></h2>
+      <input class="topicsearch" id="topicFind" type="search" placeholder="Filter topics" aria-label="Filter topics">
+      <div class="facet topics" id="fTopic"></div>
+      <h2>Extras</h2>
+      <label class="toggle"><input type="checkbox" id="fExit"> Has a matching exit ticket</label>
+      <p class="note">The numbers show how many charts each choice leaves, so you never land on an empty list.</p>
+    </aside>
+
+    <section class="main">
+      <div class="toolbar">
+        <button class="mobilefilters" type="button" id="openFilters">Filters</button>
+        <div class="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <label for="q" class="sr">Search charts</label>
+          <input id="q" type="search" autocomplete="off" placeholder="Search topics, charts or codes like RL.2.1">
+          <span class="kbd" id="kbd">/</span>
+          <button id="clear" type="button">Clear</button>
+        </div>
+        <span class="count" id="count"></span>
+        <div class="sort"><label for="sort">Sort</label>
+          <select id="sort"><option value="best">Best match</option><option value="grade">Grade, then topic</option><option value="az">Chart name A to Z</option></select>
+        </div>
+      </div>
+      <div class="pills" id="pills"></div>
+      <div class="tablewrap" id="tablewrap">
+        <div id="results"></div>
+        <button class="loadmore" id="loadmore" type="button" hidden></button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle"></aside>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="box">
+    <div class="dtop"><h2 id="mTitle">How we match charts to your state</h2><button class="iconbtn" type="button" id="mClose" aria-label="Close">✕</button></div>
+    <p>Every chart is aligned to Common Core (ELA and math), NGSS (science), Texas TEKS and Florida B.E.S.T. When you choose your state, each chart shows the alignment that fits your state best, with a label for how close it is.</p>
+    <ul>
+      <li><span class="match exact">Exact match</span><span>Your state uses these standards, sometimes under its own name, so the codes are the ones in your curriculum.</span></li>
+      <li><span class="match close">Close match</span><span>Your state revised Common Core or NGSS. Most standards carry over, though wording or numbering can differ on a few.</span></li>
+      <li><span class="match close">Matched by our team</span><span>Your state wrote or revised its own standards, so we read your state's standards for each grade and matched every chart to the standard a teacher would cite. Check the wording in your state's document if it matters for your lesson plans.</span></li>
+      <li><span class="match ref">Closest reference</span><span>Your state wrote its own standards. The skills overlap heavily, so we show Common Core or NGSS; look up the matching code in your state's document for lesson plans.</span></li>
+    </ul>
+    <p class="fine" id="mSources"></p>
+  </div>
+</div>
+
+<script>
+const D = /*__DATA__*/null;
+const FW = ["ccss", "ngss", "teks", "fl"];
+const GRADES = ["K", "1", "2", "3", "4", "5"];
+const GRADE_COLOR = { K: "#E462AA", 1: "#EF8DDB", 2: "#F4AE51", 3: "#FBE770", 4: "#00D3ED", 5: "#6385F7", K5: "#9B97AC" };
+const ALLG = "K5";
+const NOSTD = new Set(["SEL & Character", "Classroom Management"]);
+const SUBJ_STYLE = {
+  "ELA": { sc: "#E462AA", sbg: "#FCEAF4", sink: "#9C2E6C" },
+  "Math": { sc: "#6385F7", sbg: "#ECF0FE", sink: "#3550B8" },
+  "Science": { sc: "#00BCD4", sbg: "#E0F7FA", sink: "#00707E" },
+  "Social Studies": { sc: "#F4AE51", sbg: "#FDF1DF", sink: "#94590A" },
+  "SEL & Character": { sc: "#A97BE6", sbg: "#F3ECFC", sink: "#6B3FA8" },
+  "Classroom Management": { sc: "#2EB67D", sbg: "#E3F6ED", sink: "#1C7A4D" },
+};
+const KIND_LABELS = ["Full-size poster", "Mini poster", "Fill-in version", "Printable pieces"];
+const PAGE = 150;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const gname = (g) => (g === ALLG ? "Grades K–5" : g === "K" ? "Kindergarten" : "Grade " + g);
+const gshort = (g) => (g === ALLG ? "K–5" : g === "K" ? "K" : g);
+const gbadge = (g) => `<span class="gbadge${g === ALLG ? " wide" : ""}" style="--gc:${GRADE_COLOR[g]}" title="${gname(g)}">${gshort(g)}</span>`;
+const gidx = (g) => (g === ALLG ? GRADES.length : GRADES.indexOf(g));
+const inGrade = (c, g) => c.g === g || c.g === ALLG;
+function fwLabel(fw, subj) {
+  if (fw === "state") { const st = stateBy[ui.state]; return st ? st.state : "State"; }
+  return fw === "ccss" ? "Common Core" : fw === "ngss" ? "NGSS" : fw === "teks" ? "Texas TEKS"
+    : (subj === "ELA" || subj === "Math") ? "Florida B.E.S.T." : "Florida NGSSS";
+}
+function subjStyle(s) { const st = SUBJ_STYLE[s] || { sc: "#9B97AC", sbg: "#F1F0F5", sink: "#4A4660" }; return `--sc:${st.sc};--sbg:${st.sbg};--sink:${st.sink}`; }
+
+const FILLER = /\b(ccss|common|core|teks|ngss|ngsss|best|math|content|ela|literacy|standards?|florida|texas)\b\.?/gi;
+function segs(code) { return code.toLowerCase().split(/[\s.\-()]+/).flatMap((p) => p.match(/[a-z]+|\d+/g) || []); }
+function altSegs(s) { return s.filter((x, i) => !(i >= 2 && /^[a-e]$/.test(x) && /^\d+$/.test(s[i + 1] || ""))); }
+function prefixOf(q, c) { if (!q.length || q.length > c.length) return false; for (let i = 0; i < q.length; i++) if (q[i] !== c[i]) return false; return true; }
+function looksLikeCode(q) { return /\d/.test(q) && (/[.\-]/.test(q) || /^[a-z]{1,4}\s?\d/i.test(q) || /^\d+[a-z]$/i.test(q)); }
+
+const S = D.S.map(([f, code, text]) => { const s = segs(code); return { fw: FW[f], code, text, segs: s, alt: altSegs(s) }; });
+const LIB = "https://membership.anchorchartclub.com/library";
+const CH = D.C.map(([g, s, name, cats, ids, kinds, exit, url], i) => {
+  const subj = D.subjects[s]; const stds = ids.map((id) => S[id]);
+  return { i, g, subj, name, cats, topic: cats[0] || "General", stds, kinds, exit: !!exit, url: url || "",
+    nameL: name.toLowerCase(), catL: cats.join(" ").toLowerCase(),
+    hay: (name + " " + cats.join(" ") + " " + subj + " " + stds.map((x) => x.code + " " + x.text).join(" ")).toLowerCase() };
+});
+const SUBJECTS = D.subjects.filter((s) => CH.some((c) => c.subj === s));
+const STATES = (D.states || []).slice().sort((a, b) => a.state.localeCompare(b.state));
+const stateBy = Object.fromEntries(STATES.map((s) => [s.abbr, s]));
+const STATE_FILES = new Set(D.stateFiles || []);
+const SD = {};
+async function loadState(abbr) {
+  if (!STATE_FILES.has(abbr) || SD[abbr]) return;
+  SD[abbr] = "loading";
+  try {
+    const r = await fetch(`states/${abbr}.json`);
+    const d = await r.json();
+    const objs = d.std.map(([code, text]) => { const s = segs(code); return { fw: "state", code, text, segs: s, alt: altSegs(s) }; });
+    for (const [i, ids] of Object.entries(d.map)) { const c = CH[+i]; if (!c) continue; c.st = c.st || {}; c.st[abbr] = ids.map((k) => objs[k]); }
+    SD[abbr] = d;
+  } catch (e) { SD[abbr] = null; }
+}
+
+const SYN = {
+  main: ["main", "central"], central: ["central", "main"], add: ["add", "addition", "sum"], adding: ["addition", "add"], plus: ["addition", "add"],
+  subtract: ["subtract", "subtraction", "difference"], minus: ["subtraction", "subtract"], times: ["multiplication", "multiply"],
+  multiply: ["multipl"], multiplying: ["multipl"], divide: ["divi"], dividing: ["divi"], money: ["money", "coin", "dollar"], coins: ["coin", "money"],
+  "2d": ["2d", "two-dimensional", "2-d"], "3d": ["3d", "three-dimensional", "3-d"], time: ["time", "clock"],
+};
+function tokenAlts(t) {
+  const out = new Set([t]); (SYN[t] || []).forEach((x) => out.add(x));
+  if (t.length > 3 && t.endsWith("s")) out.add(t.slice(0, -1));
+  if (t.length > 5 && t.endsWith("ing")) out.add(t.slice(0, -3));
+  return [...out];
+}
+
+const TYPE_META = { ccss: ["exact", "Exact match"], ngss: ["exact", "Exact match"], "ccss-based": ["close", "Close match"], "ngss-based": ["close", "Close match"], own: ["ref", "Closest reference"] };
+function plan(subj, st) {
+  if (NOSTD.has(subj)) return { fw: [], level: null, nostd: true };
+  if (!st) return { fw: subj === "Science" ? ["ngss"] : subj === "Social Studies" ? ["teks", "fl"] : ["ccss"], level: null };
+  if (st.abbr === "TX") return { fw: ["teks"], level: "exact", label: "Exact match", name: "Texas TEKS" };
+  if (st.abbr === "FL") return { fw: ["fl"], level: "exact", label: "Exact match", name: fwLabel("fl", subj) };
+  const sd = SD[st.abbr]; const sub = sd && sd !== "loading" && sd.subjects[subj];
+  if (sub && sub.mode === "matched") return { fw: ["state"], level: "close", label: `Matched to ${st.state} standards`, name: sub.fw || `${st.state} standards`, matched: true };
+  if (subj === "Social Studies") return { fw: ["teks", "fl"], level: "none", label: "Not aligned yet", name: "Texas and Florida", why: "Social studies charts are aligned to Texas and Florida so far. We show both so you can see the skill each chart covers." };
+  const info = st[subj === "Science" ? "science" : subj === "Math" ? "math" : "ela"] || {};
+  const base = subj === "Science" ? "ngss" : "ccss";
+  const m = TYPE_META[info.type] || ["ref", "Closest reference"];
+  const why = m[0] === "exact" ? `${st.state} uses ${info.name || fwLabel(base, subj)}, which match ${fwLabel(base, subj)} code for code.`
+    : m[0] === "close" ? `${st.state}'s ${info.name || "standards"} were built from ${fwLabel(base, subj)}. These codes line up with most of yours; a few may be worded or numbered differently.`
+    : `${st.state} wrote its own ${info.name || "standards"}. We show ${fwLabel(base, subj)} as the closest reference for the same skill.`;
+  return { fw: [base], level: m[0], label: m[1], name: info.name || fwLabel(base, subj), why };
+}
+
+const ui = { q: "", grade: "", subj: "", topic: "", exit: false, sort: "best", shown: PAGE, sel: null, state: "" };
+try { const sv = JSON.parse(localStorage.getItem("acc-finder") || "{}"); if (stateBy[sv.state]) ui.state = sv.state; } catch (e) {}
+function save() { try { localStorage.setItem("acc-finder", JSON.stringify({ state: ui.state })); } catch (e) {} }
+
+function matchQuery(pool) {
+  const raw = ui.q.toLowerCase().trim();
+  if (!raw) return { list: pool, mode: "none" };
+  const stripped = raw.replace(FILLER, " ").trim() || raw;
+  if (looksLikeCode(stripped)) {
+    const qs = segs(stripped);
+    const hits = pool.filter((c) => c.stds.concat((c.st && c.st[ui.state]) || []).some((s) => prefixOf(qs, s.segs) || prefixOf(qs, s.alt)));
+    if (hits.length) return { list: hits, mode: "code", qs };
+  }
+  const tokens = raw.split(/\s+/).filter(Boolean).map(tokenAlts);
+  const out = [];
+  for (const c of pool) {
+    if (!tokens.every((alts) => alts.some((a) => c.hay.includes(a)))) continue;
+    let sc = 0;
+    if (c.nameL === raw) sc += 200;
+    if (c.nameL.includes(raw)) sc += 100;
+    if (tokens.every((alts) => alts.some((a) => c.nameL.includes(a)))) sc += 60;
+    if (tokens.every((alts) => alts.some((a) => c.catL.includes(a)))) sc += 25;
+    sc += tokens.filter((alts) => alts.some((a) => c.nameL.includes(a))).length * 8;
+    c._score = sc; out.push(c);
+  }
+  return { list: out, mode: "text", tokens };
+}
+const pass = (c, skip) => (skip === "grade" || !ui.grade || inGrade(c, ui.grade)) && (skip === "subj" || !ui.subj || c.subj === ui.subj)
+  && (skip === "topic" || !ui.topic || c.topic === ui.topic) && (!ui.exit || c.exit);
+
+function sortList(list, mode) {
+  const byGrade = (a, b) => gidx(a.g) - gidx(b.g) || SUBJECTS.indexOf(a.subj) - SUBJECTS.indexOf(b.subj) || a.i - b.i;
+  if (ui.sort === "az") return list.sort((a, b) => a.name.localeCompare(b.name) || byGrade(a, b));
+  if (ui.sort === "best" && mode === "text") return list.sort((a, b) => b._score - a._score || byGrade(a, b));
+  return list.sort(byGrade);
+}
+
+function facet(el, items, key) {
+  el.innerHTML = items.map(({ val, label, n, extra }) =>
+    `<button type="button" class="opt" data-k="${key}" data-v="${esc(val)}" aria-pressed="${ui[key] === val}" ${n === 0 && ui[key] !== val ? "disabled" : ""}>${extra || ""}<span>${esc(label)}</span><span class="n">${n.toLocaleString()}</span></button>`).join("");
+}
+function renderFacets(qres) {
+  const base = qres.list;
+  const cnt = (skip, f) => base.filter((c) => pass(c, skip) && f(c)).length;
+  facet($("fGrade"), [{ val: "", label: "All grades", n: cnt("grade", () => true) }].concat(
+    GRADES.filter((g) => CH.some((c) => c.g === g)).map((g) => ({ val: g, label: gname(g), n: cnt("grade", (c) => inGrade(c, g)), extra: `<span class="gbadge" style="--gc:${GRADE_COLOR[g]}">${gshort(g)}</span>` }))), "grade");
+  facet($("fSubj"), [{ val: "", label: "All subjects", n: cnt("subj", () => true) }].concat(
+    SUBJECTS.map((s) => ({ val: s, label: s, n: cnt("subj", (c) => c.subj === s), extra: `<span class="dot" style="background:${(SUBJ_STYLE[s] || {}).sc || "#9B97AC"}"></span>` }))), "subj");
+  const tmap = new Map();
+  base.filter((c) => pass(c, "topic")).forEach((c) => tmap.set(c.topic, (tmap.get(c.topic) || 0) + 1));
+  if (ui.topic && !tmap.has(ui.topic)) tmap.set(ui.topic, 0);
+  const find = $("topicFind").value.toLowerCase().trim();
+  const topics = [...tmap.entries()].filter(([t]) => !find || t.toLowerCase().includes(find)).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  facet($("fTopic"), topics.map(([t, n]) => ({ val: t, label: t, n })), "topic");
+  if (!topics.length) $("fTopic").innerHTML = `<p class="note">No topics match.</p>`;
+  $("topicClear").hidden = !ui.topic;
+}
+
+function stdsFor(c, p) { return p.fw.includes("state") ? ((c.st && c.st[ui.state]) || []) : c.stds.filter((s) => p.fw.includes(s.fw)); }
+function codesFor(c, st) { return stdsFor(c, plan(c.subj, st)); }
+function hl(text, res) {
+  const h = esc(text);
+  if (res.mode !== "text") return h;
+  const words = res.tokens.flat().filter((w) => w.length > 1).sort((a, b) => b.length - a.length);
+  if (!words.length) return h;
+  return h.replace(new RegExp("(" + words.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")", "gi"), "<mark>$1</mark>");
+}
+const isHit = (s, res) => res.mode === "code" && (prefixOf(res.qs, s.segs) || prefixOf(res.qs, s.alt));
+let lastRes = null;
+
+function render(keepScroll) {
+  const st = stateBy[ui.state] || null;
+  const qres = matchQuery(CH);
+  lastRes = qres;
+  renderFacets(qres);
+  const list = sortList(qres.list.filter((c) => pass(c)), qres.mode);
+  $("count").innerHTML = `<b>${list.length.toLocaleString()}</b> ${list.length === 1 ? "chart" : "charts"}`;
+
+  const pills = [];
+  if (ui.q) pills.push(["q", `“${ui.q}”`]);
+  if (ui.grade) pills.push(["grade", gname(ui.grade)]);
+  if (ui.subj) pills.push(["subj", ui.subj]);
+  if (ui.topic) pills.push(["topic", ui.topic]);
+  if (ui.exit) pills.push(["exit", "Has exit ticket"]);
+  $("pills").innerHTML = pills.map(([k, l]) => `<button type="button" class="fpill" data-x="${k}">${esc(l)}<span aria-label="Remove">✕</span></button>`).join("")
+    + (pills.length > 1 ? `<button type="button" class="clearall" data-x="all">Clear all</button>` : "");
+
+  $("statebtn").classList.toggle("unset", !st);
+
+  if (!list.length) {
+    $("results").innerHTML = `<div class="empty"><h3>No charts match${ui.q ? ` “${esc(ui.q)}”` : " these filters"}</h3>Try a shorter word, a code like RL.2.1 or 3.4C, or remove a filter.<br><button type="button" data-x="all">Clear search and filters</button></div>`;
+    $("loadmore").hidden = true; return;
+  }
+  const colLabel = st ? `Standards for ${st.state}` : "Standards";
+  let dividerDone = !(qres.mode === "text" && ui.sort === "best") || list.every((c) => c._score === 0);
+  const rows = list.slice(0, ui.shown).map((c) => {
+    let pre = "";
+    if (!dividerDone && c._score === 0) { dividerDone = true; const rest = list.filter((x) => x._score === 0).length; pre = `<tr class="divider"><td colspan="5">${rest.toLocaleString()} more ${rest === 1 ? "chart has" : "charts have"} standards that mention “${esc(ui.q)}”</td></tr>`; }
+    const codes = codesFor(c, st);
+    const shown = codes.slice(0, 3);
+    return pre + `<tr data-i="${c.i}" class="${ui.sel === c.i ? "sel" : ""}" tabindex="0">
+      <td><div class="cline"><span class="cname">${hl(c.name, qres)}</span><a class="openlink" href="${esc(c.url || LIB)}" target="_blank" rel="noopener" title="Open this chart in the library">Open ↗</a></div><div class="ctopic">${hl(c.cats.join(" · ") || "General", qres)}</div></td>
+      <td class="colgrade">${gbadge(c.g)}</td>
+      <td class="colsubj"><span class="subj" style="${subjStyle(c.subj)}">${esc(c.subj)}</span></td>
+      <td class="colstd"><div class="codes">${shown.length ? shown.map((s) => `<span class="code${isHit(s, qres) ? " hit" : ""}" title="${esc(fwLabel(s.fw, c.subj) + ": " + s.text)}">${esc(s.code || "Note")}</span>`).join("") + (codes.length > 3 ? `<span class="more">+${codes.length - 3}</span>` : "") : NOSTD.has(c.subj) ? `<span class="none" title="SEL and classroom management charts aren't tied to academic standards">—</span>` : `<span class="none">Bonus chart</span>`}</div></td>
+      <td class="colexit">${c.exit ? '<span class="xcheck" title="Has a matching exit ticket" aria-label="Has a matching exit ticket">✓</span>' : ""}</td>
+    </tr>`;
+  }).join("");
+  $("results").innerHTML = `<table><thead><tr><th>Chart</th><th class="colgrade">Grade</th><th class="colsubj">Subject</th><th class="colstd">${esc(colLabel)}</th><th class="colexit" title="Has a matching exit ticket">Exit ticket</th></tr></thead><tbody>${rows}</tbody></table>`;
+  const left = list.length - ui.shown;
+  $("loadmore").hidden = left <= 0;
+  $("loadmore").textContent = `Show ${Math.min(left, PAGE)} more (${left.toLocaleString()} left)`;
+  if (!keepScroll) $("tablewrap").scrollTop = 0;
+  if (ui.sel !== null) renderDrawer();
+}
+
+function stdItems(arr, res) { return arr.map((s) => `<div class="std">${s.code ? `<div class="c">${isHit(s, res) ? `<mark>${esc(s.code)}</mark>` : esc(s.code)}</div>` : ""}<div class="t">${esc(s.text)}</div></div>`).join(""); }
+function renderDrawer() {
+  const c = CH[ui.sel]; if (!c) return;
+  const st = stateBy[ui.state] || null;
+  const p = plan(c.subj, st);
+  const res = lastRes || { mode: "none" };
+  const others = FW.filter((f) => !p.fw.includes(f) && c.stds.some((s) => s.fw === f));
+  const kinds = KIND_LABELS.filter((_, k) => c.kinds & (1 << k));
+  const head = st ? `Standards for ${esc(st.state)}` : esc(fwLabel(p.fw[0], c.subj));
+  const primaryHtml = p.fw.map((f, idx) => {
+    const arr = f === "state" ? stdsFor(c, p) : c.stds.filter((s) => s.fw === f);
+    const empty = p.matched ? `<p class="explain" style="margin:0">${esc(st.state)}'s standards don't cover this chart's topic at this grade. The other alignments below show the skill it teaches.</p>` : `<p class="explain" style="margin:0">This is a bonus chart with no ${esc(fwLabel(f, c.subj))} standard listed.</p>`;
+    return `<div class="sec"><h3>${p.fw.length > 1 ? esc(fwLabel(f, c.subj)) : head}${p.level && idx === 0 ? ` <button type="button" class="match ${p.level}" data-info title="What does this label mean?">${p.matched ? "Matched by our team" : p.label} ⓘ</button>` : ""}</h3>
+      ${p.matched ? `<p class="explain" style="margin:0 0 8px">${esc(p.name)}</p>` : ""}
+      ${arr.length ? `<div class="stdlist">${stdItems(arr, res)}</div>` : empty}
+</div>`;
+  }).join("");
+  $("drawer").innerHTML = `
+    <div class="dhead">
+      <div class="dtop"><h2 id="dTitle">${esc(c.name)}</h2><button class="iconbtn" type="button" data-close aria-label="Close details">✕</button></div>
+      <div class="tags"><span class="tag">${gname(c.g)}</span><span class="subj" style="${subjStyle(c.subj)}">${esc(c.subj)}</span>${c.cats.map((x) => `<span class="tag">${esc(x)}</span>`).join("")}${c.exit ? '<span class="exit">✓ Exit ticket</span>' : ""}</div>
+    </div>
+    <div class="dbody">
+      ${primaryHtml}
+      ${kinds.length ? `<div class="sec"><h3>Included in the download</h3><div class="formats">${kinds.map((k) => `<span class="fmt">${k}</span>`).join("")}</div></div>` : ""}
+      ${others.length ? `<div class="sec"><h3>Other alignments</h3>${others.map((f) => `<details class="other"><summary>${esc(fwLabel(f, c.subj))} (${c.stds.filter((s) => s.fw === f).length})</summary><div class="stdlist">${stdItems(c.stds.filter((s) => s.fw === f), res)}</div></details>`).join("")}</div>` : ""}
+    </div>
+    <div class="dfoot">${p.nostd ? "" : `<button class="btn2" type="button" data-copy>Copy standards</button>`}<a class="cta" href="${esc(c.url || LIB)}" target="_blank" rel="noopener">Open chart ↗</a></div>`;
+  document.body.classList.add("open");
+}
+function closeDrawer() { ui.sel = null; document.body.classList.remove("open"); document.querySelectorAll("tr.sel").forEach((r) => r.classList.remove("sel")); }
+function openRow(i) { ui.sel = i; document.querySelectorAll("tr.sel").forEach((r) => r.classList.remove("sel")); const tr = document.querySelector(`tr[data-i="${i}"]`); if (tr) tr.classList.add("sel"); renderDrawer(); $("drawer").querySelector("[data-close]").focus(); }
+
+const sel = $("state");
+STATES.forEach((s) => { const o = document.createElement("option"); o.value = s.abbr; o.textContent = s.state; sel.appendChild(o); });
+sel.value = ui.state;
+sel.addEventListener("change", async () => { ui.state = sel.value; save(); hideCoach(); render(true); if (STATE_FILES.has(ui.state) && !SD[ui.state]) { await loadState(ui.state); render(true); } });
+function hideCoach() { $("coach").classList.remove("show"); try { localStorage.setItem("acc-coach", "1"); } catch (e) {} }
+$("coachOk").addEventListener("click", () => { hideCoach(); sel.focus(); });
+let coachSeen = false; try { coachSeen = localStorage.getItem("acc-coach") === "1"; } catch (e) {}
+if (!ui.state && !coachSeen) $("coach").classList.add("show");
+
+let tmr;
+function setQ(v) { $("q").value = v; $("clear").style.display = v ? "block" : "none"; $("kbd").style.display = v ? "none" : ""; }
+$("q").addEventListener("input", (e) => { const v = e.target.value; setQ(v); clearTimeout(tmr); tmr = setTimeout(() => { ui.q = v.trim(); ui.shown = PAGE; render(); }, 110); });
+$("clear").addEventListener("click", () => { setQ(""); ui.q = ""; render(); $("q").focus(); });
+$("sort").addEventListener("change", (e) => { ui.sort = e.target.value; render(); });
+$("fExit").addEventListener("change", (e) => { ui.exit = e.target.checked; ui.shown = PAGE; render(); });
+$("topicFind").addEventListener("input", () => renderFacets(lastRes || matchQuery(CH)));
+$("topicClear").addEventListener("click", () => { ui.topic = ""; render(); });
+$("side").addEventListener("click", (e) => {
+  const b = e.target.closest(".opt"); if (!b || b.disabled) return;
+  const k = b.dataset.k, v = b.dataset.v;
+  ui[k] = ui[k] === v ? "" : v;
+  if (k !== "topic" && ui.topic && !CH.some((c) => c.topic === ui.topic && pass(c))) ui.topic = "";
+  ui.shown = PAGE; render();
+});
+function clearKey(k) {
+  if (k === "all") { setQ(""); ui.q = ""; ui.grade = ui.subj = ui.topic = ""; ui.exit = false; $("fExit").checked = false; }
+  else if (k === "q") { setQ(""); ui.q = ""; }
+  else if (k === "exit") { ui.exit = false; $("fExit").checked = false; }
+  else ui[k] = "";
+  ui.shown = PAGE; render();
+}
+document.addEventListener("click", (e) => {
+  const x = e.target.closest("[data-x]"); if (x) { clearKey(x.dataset.x); return; }
+  if (e.target.closest("[data-close]") || e.target === $("scrim")) { closeDrawer(); document.body.classList.remove("filters-open"); return; }
+  if (e.target.closest("[data-info]")) { $("modal").classList.add("show"); return; }
+  if (e.target === $("modal") || e.target.closest("#mClose")) { $("modal").classList.remove("show"); return; }
+});
+$("results").addEventListener("click", (e) => { const tr = e.target.closest("tr[data-i]"); if (tr) openRow(+tr.dataset.i); });
+$("results").addEventListener("keydown", (e) => { const tr = e.target.closest("tr[data-i]"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openRow(+tr.dataset.i); } });
+$("loadmore").addEventListener("click", () => { ui.shown += PAGE; render(true); });
+$("openFilters").addEventListener("click", () => document.body.classList.add("filters-open"));
+$("drawer").addEventListener("click", async (e) => {
+  const b = e.target.closest("[data-copy]"); if (!b) return;
+  const c = CH[ui.sel]; const p = plan(c.subj, stateBy[ui.state] || null);
+  const lines = [`${c.name} (${gname(c.g)} ${c.subj})`];
+  stdsFor(c, p).forEach((s) => lines.push(s.code ? `${fwLabel(s.fw, c.subj)} ${s.code}: ${s.text}` : `${fwLabel(s.fw, c.subj)}: ${s.text}`));
+  try { await navigator.clipboard.writeText(lines.join("\n")); b.textContent = "Copied"; b.classList.add("ok"); }
+  catch (err) { b.textContent = "Copy not allowed here"; }
+  setTimeout(() => { b.textContent = "Copy standards"; b.classList.remove("ok"); }, 1600);
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "/" && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); $("q").focus(); }
+  if (e.key === "Escape") { hideCoach(); if ($("modal").classList.contains("show")) $("modal").classList.remove("show"); else { closeDrawer(); document.body.classList.remove("filters-open"); } }
+});
+$("mSources").textContent = D.sourceNote || "";
+
+render();
+</script>
+</body>
+</html>
