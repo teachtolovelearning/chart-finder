@@ -105,7 +105,7 @@ button { cursor: pointer; }
 
 .pills { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 20px 10px; align-items: center; }
 .pills:empty { display: none; }
-.fpill { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-soft); color: var(--accent-ink); border: 0; border-radius: 999px; padding: 4px 6px 4px 11px; font-size: 12.5px; font-weight: 500; }
+.fpill { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-soft); color: var(--accent-ink); border: 0; border-radius: 4px; padding: 4px 6px 4px 11px; font-size: 12.5px; font-weight: 500; }
 .fpill span { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; }
 .fpill:hover span { background: rgba(60, 90, 208, .14); }
 .clearall { border: 0; background: none; color: var(--muted); font-size: 12.5px; text-decoration: underline; padding: 4px; }
@@ -126,8 +126,8 @@ tbody tr.divider:hover td { background: #F9F8FB; }
 .cline { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .cname { font-weight: 600; font-size: 13.5px; }
 .ctopic { font-size: 12px; color: var(--muted); margin-top: 1px; }
-.subj { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; padding: 2px 9px 2px 7px; border-radius: 999px; background: var(--sbg); color: var(--sink); white-space: nowrap; }
-.subj::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--sc); }
+.subj { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+.subj::before { content: ""; width: 9px; height: 9px; border-radius: 2px; background: var(--sc); flex-shrink: 0; }
 .codes { display: flex; flex-wrap: wrap; gap: 4px; }
 .code { font-size: 11.5px; font-weight: 600; font-variant-numeric: tabular-nums; border: 1px solid var(--line-strong); border-radius: 5px; padding: 1px 6px; background: var(--panel); white-space: nowrap; }
 .code.hit { background: #FFF3B0; border-color: #E9CF4A; }
@@ -164,7 +164,7 @@ mark { background: #FFF3B0; color: inherit; border-radius: 2px; padding: 0 1px; 
 .tag { font-size: 12px; padding: 2px 8px; border-radius: 5px; background: #F1F0F5; color: var(--muted); font-weight: 500; }
 .dbody { padding: 16px 20px 24px; overflow-y: auto; display: grid; gap: 18px; align-content: start; flex: 1; }
 .sec h3 { margin: 0 0 8px; font-size: 11.5px; font-weight: 600; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.match { border: 0; cursor: pointer; font-family: inherit; font-size: 11px; letter-spacing: .02em; text-transform: none; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.match { border: 0; cursor: pointer; font-family: inherit; font-size: 11px; letter-spacing: .02em; text-transform: none; font-weight: 600; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
 .match.exact { background: #E3F5EC; color: #1F7A51; }
 .match.close { background: #FFF4D6; color: #8A5A00; }
 .match.ref { background: #EEEAF6; color: #5B4E86; }
@@ -200,7 +200,7 @@ details.other .stdlist { padding: 0 12px 12px; }
 .views button { border: 0; background: none; border-radius: 6px; padding: 6px 12px; font-weight: 600; font-size: 13px; color: var(--muted); white-space: nowrap; }
 .views button:hover { color: var(--ink); }
 .views button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-ink); }
-.opt .now, .nowtag { font-size: 10.5px; font-weight: 600; color: var(--ink); background: #FCEAF4; border-radius: 999px; padding: 0 7px; white-space: nowrap; }
+.opt .now, .nowtag { font-size: 10.5px; font-weight: 600; color: var(--ink); background: #FCEAF4; border-radius: 4px; padding: 0 7px; white-space: nowrap; }
 .ctopic .cwhen { white-space: nowrap; }
 .tag.when { background: #FCEAF4; color: var(--ink); }
 body.yearview .sort, body.yearview .topicblock { display: none; }
@@ -214,12 +214,13 @@ body.yearview .side .opt .n { display: none; }
 .yhead .q { grid-row: 1; text-align: center; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; padding: 8px 0 2px; border-left: 1px solid var(--line); }
 .yhead .m { grid-row: 2; text-align: center; font-size: 12px; font-weight: 600; padding: 2px 0 8px; border-left: 1px solid var(--line); }
 .yhead .m.cur { color: var(--ink); }
-.yhead .m.cur::after { content: "now"; display: block; width: max-content; margin: 2px auto 0; font-size: 10px; font-weight: 600; background: #FCEAF4; color: var(--ink); border-radius: 999px; padding: 0 7px; }
+.yhead .m.cur::after { content: "now"; display: block; width: max-content; margin: 2px auto 0; font-size: 10px; font-weight: 600; background: #FCEAF4; color: var(--ink); border-radius: 4px; padding: 0 7px; }
 .yhead .corner { grid-row: 1 / span 2; grid-column: 1; display: flex; align-items: end; padding: 0 6px 8px 10px; gap: 6px; font-weight: 600; font-size: 13px; white-space: nowrap; }
 .yrow { border-bottom: 1px solid var(--line); gap: 8px 6px; padding: 10px 6px 10px 0; }
 .yrow:last-child { border-bottom: 0; }
 .slabel { grid-column: 1; padding: 4px 8px 0 12px; }
-.slabel .subj { white-space: normal; }
+.slabel .subj { white-space: normal; font-weight: 600; font-size: 12.5px; line-height: 1.35; align-items: flex-start; }
+.slabel .subj::before { margin-top: 4px; }
 .unit { border: 1px solid var(--line); border-top: 4px solid var(--sc); border-radius: var(--radius); background: var(--panel); padding: 9px 8px 7px; min-width: 0; align-self: start; }
 .unit.cur { box-shadow: 0 0 0 2px #F7C6E1; }
 .unit.dim { opacity: .45; }
@@ -649,7 +650,7 @@ function renderYear(qres, keepScroll) {
       const items = (open ? hits : hits.slice(0, FOLD)).map((y) => y.c
         ? `<li><button type="button" class="ych${ui.sel === y.c.i ? " sel" : ""}" data-i="${y.c.i}">${hl(y.name, qres)}</button></li>`
         : `<li><a class="ych ext" href="${esc(y.url)}" target="_blank" rel="noopener" title="Opens in the member library">${hl(y.name, qres)}</a></li>`).join("");
-      const more = !open && hits.length > FOLD ? `<button type="button" class="showall" data-u="${u.i}">Show all ${hits.length} charts</button>` : "";
+      const more = hits.length <= FOLD || searching ? "" : open ? `<button type="button" class="showall" data-less="${u.i}">Show fewer</button>` : `<button type="button" class="showall" data-u="${u.i}">Show all ${hits.length} charts</button>`;
       const cur = u.a <= NOW && NOW <= u.b;
       return `<article class="unit${cur ? " cur" : ""}${off ? " dim" : ""}${u.a === u.b ? " one" : ""}" style="grid-column:${u.a + 2} / ${u.b + 3};${ystyle(l)}">
         <h3>${hl(u.name, qres)}</h3>
@@ -746,7 +747,7 @@ document.addEventListener("click", (e) => {
   if (e.target === $("modal") || e.target.closest("#mClose")) { $("modal").classList.remove("show"); return; }
 });
 $("results").addEventListener("click", (e) => {
-  const sa = e.target.closest(".showall"); if (sa) { ui.open.add(+sa.dataset.u); render(true); return; }
+  const sa = e.target.closest(".showall"); if (sa) { if (sa.dataset.less !== undefined) ui.open.delete(+sa.dataset.less); else ui.open.add(+sa.dataset.u); render(true); return; }
   const tr = e.target.closest("tr[data-i], .ych[data-i]"); if (tr) openRow(+tr.dataset.i);
 });
 $("results").addEventListener("keydown", (e) => { const tr = e.target.closest("tr[data-i]"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openRow(+tr.dataset.i); } });
