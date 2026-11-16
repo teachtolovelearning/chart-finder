@@ -52,12 +52,7 @@ button { cursor: pointer; }
 .statebtn.unset { border-color: var(--accent); background: var(--accent-soft); }
 .statebtn.unset label { color: var(--accent-ink); font-weight: 600; }
 .statebtn.unset select { color: var(--accent-ink); }
-.coach { position: absolute; top: calc(100% + 12px); right: 0; width: 290px; background: var(--ink); color: #fff; border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); z-index: 15; font-size: 13px; display: none; }
-.coach.show { display: block; }
-.coach::before { content: ""; position: absolute; top: -6px; right: 40px; width: 12px; height: 12px; background: var(--ink); transform: rotate(45deg); }
-.coach b { display: block; font-size: 14px; margin-bottom: 4px; }
-.coach button { margin-top: 10px; border: 0; background: #fff; color: var(--ink); border-radius: 6px; padding: 5px 12px; font-weight: 600; font-size: 12.5px; }
-@media (prefers-reduced-motion: no-preference) { .coach.show { animation: pop .25s ease-out; } @keyframes pop { from { transform: translateY(-4px); opacity: .6; } to { transform: none; opacity: 1; } } }
+@media (prefers-reduced-motion: no-preference) { @keyframes pop { from { transform: translateY(-4px); opacity: .6; } to { transform: none; opacity: 1; } } }
 .statebtn label { font-size: 12px; line-height: 1; color: var(--muted); white-space: nowrap; }
 .statebtn select { border: 0; background: transparent; font-weight: 600; font-size: 13px; padding: 0 2px; height: 30px; line-height: 30px; max-width: 190px; cursor: pointer; }
 .statebtn select:focus-visible { outline: none; }
@@ -87,11 +82,12 @@ button { cursor: pointer; }
 .toggle input { accent-color: var(--accent); width: 15px; height: 15px; }
 .side .note { font-size: 12px; color: var(--muted); margin: 8px 8px 0; }
 
-.main { display: grid; grid-template-rows: auto auto 1fr; min-width: 0; min-height: 0; }
-.toolbar { display: flex; align-items: center; gap: 10px; padding: 14px 20px 10px; flex-wrap: wrap; }
-.search { position: relative; flex: 1; min-width: 240px; max-width: 640px; }
-.search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--faint); }
-#q { width: 100%; height: 40px; border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 0 64px 0 38px; background: var(--panel); font-size: 14px; }
+.main { display: grid; grid-template-rows: auto auto auto 1fr; min-width: 0; min-height: 0; }
+.toolbar { display: flex; align-items: center; gap: 10px; padding: 16px 20px 8px; }
+.toolbar2 { display: flex; align-items: center; gap: 12px; padding: 4px 20px 10px; flex-wrap: wrap; }
+.search { position: relative; flex: 1; min-width: 0; }
+.search svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--faint); }
+#q { width: 100%; height: 52px; border: 1.5px solid #CFCBDA; border-radius: var(--radius); padding: 0 70px 0 48px; background: var(--panel); font-size: 16px; }
 #q:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 #q::placeholder { color: var(--faint); }
 #q::-webkit-search-cancel-button { display: none; }
@@ -127,7 +123,9 @@ tbody tr.divider:hover td { background: #F9F8FB; }
 .cname { font-weight: 600; font-size: 13.5px; }
 .ctopic { font-size: 12px; color: var(--muted); margin-top: 1px; }
 .subj { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 500; color: var(--ink); white-space: nowrap; }
-.subj::before { content: ""; width: 9px; height: 9px; border-radius: 2px; background: var(--sc); flex-shrink: 0; }
+.subj::before { content: none; }
+.sico { width: 18px; height: 18px; flex-shrink: 0; display: block; }
+.opt .sico { width: 19px; height: 19px; }
 .codes { display: flex; flex-wrap: wrap; gap: 4px; }
 .code { font-size: 11.5px; font-weight: 600; font-variant-numeric: tabular-nums; border: 1px solid var(--line-strong); border-radius: 5px; padding: 1px 6px; background: var(--panel); white-space: nowrap; }
 .code.hit { background: #FFF3B0; border-color: #E9CF4A; }
@@ -195,6 +193,22 @@ details.other .stdlist { padding: 0 12px 12px; }
 .linkish { border: 0; background: none; color: var(--accent-ink); font-weight: 600; font-size: 12px; padding: 0; text-decoration: underline; }
 
 
+
+/* First-visit tour */
+.tour { position: fixed; z-index: 50; width: min(310px, calc(100vw - 24px)); background: var(--panel); border: 1px solid var(--line-strong); border-top: 4px solid var(--pink); border-radius: 8px; padding: 12px 16px 12px; box-shadow: 0 10px 30px rgba(30, 27, 46, .18); display: none; font-size: 13.5px; }
+.tour.show { display: block; }
+.tour::before { content: ""; position: absolute; top: -14px; left: var(--ax, 24px); border: 6px solid transparent; border-bottom: 6px solid var(--pink); }
+.tour.above::before { top: auto; bottom: -13px; border-bottom-color: transparent; border-top: 6px solid var(--line-strong); }
+.tour .tstep { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+.tour b { display: block; font-size: 15px; margin-bottom: 4px; }
+.tour p { margin: 0 0 12px; color: #3E3A50; }
+.tour .tbtns { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.tour .tskip { border: 0; background: none; color: var(--muted); font-size: 12.5px; padding: 4px 0; text-decoration: underline; }
+.tour .tnext { border: 0; background: var(--pink); color: #fff; border-radius: 4px; padding: 7px 16px; font-weight: 600; font-size: 13px; }
+.tour .tnext:hover { background: var(--pink-ink); }
+.tourmark { box-shadow: 0 0 0 3px #FF85DF !important; position: relative; z-index: 6; }
+@media (prefers-reduced-motion: no-preference) { .tour.show { animation: pop .2s ease-out; } }
+
 /* View switch */
 .views { display: inline-flex; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--panel); padding: 2px; gap: 2px; flex-shrink: 0; }
 .views button { border: 0; background: none; border-radius: 6px; padding: 6px 12px; font-weight: 600; font-size: 13px; color: var(--muted); white-space: nowrap; }
@@ -220,7 +234,7 @@ body.yearview .side .opt .n { display: none; }
 .yrow:last-child { border-bottom: 0; }
 .slabel { grid-column: 1; padding: 4px 8px 0 12px; }
 .slabel .subj { white-space: normal; font-weight: 600; font-size: 12.5px; line-height: 1.35; align-items: flex-start; }
-.slabel .subj::before { margin-top: 4px; }
+.slabel .subj .sico { margin-top: -1px; }
 .unit { border: 1px solid var(--line); border-top: 4px solid var(--sc); border-radius: var(--radius); background: var(--panel); padding: 9px 8px 7px; min-width: 0; align-self: start; }
 .unit.cur { box-shadow: 0 0 0 2px #F7C6E1; }
 .unit.dim { opacity: .45; }
@@ -250,8 +264,6 @@ body.yearview .side .opt .n { display: none; }
   .topbar .spacer { display: none; }
   .statewrap { order: 3; width: 100%; }
   .statebtn { width: 100%; }
-  .coach { left: 0; right: auto; }
-  .coach::before { left: 40px; right: auto; }
   .statebtn select { max-width: none; flex: 1; }
   .sort { margin-left: 0; }
   .colexit { display: none; }
@@ -278,9 +290,12 @@ body.yearview .side .opt .n { display: none; }
   .pills { padding: 0 12px 10px; }
   .brand img { height: 44px; }
   .cta { padding: 8px 10px; font-size: 12px; }
-  .views { order: 4; width: 100%; }
-  .views button { flex: 1; }
-  .search { order: 5; flex-basis: 100%; min-width: 0; }
+  .views { flex: 1; }
+  .views button { flex: 1; padding: 6px 8px; }
+  .count { width: 100%; }
+  .kbd { display: none; }
+  .toolbar2 { padding: 4px 12px 10px; }
+  #q { height: 48px; font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -299,7 +314,6 @@ body.yearview .side .opt .n { display: none; }
         <label for="state">Standards for</label>
         <select id="state"><option value="">Choose your state</option></select>
       </div>
-      <div class="coach" id="coach" role="dialog" aria-labelledby="coachTitle"><b id="coachTitle">Start here</b>Choose your state and every chart shows the standard codes your state uses. We'll remember it for next time.<br><button type="button" id="coachOk">Got it</button></div>
     </div>
     <a class="cta" href="https://membership.anchorchartclub.com">Open my library</a>
   </header>
@@ -323,17 +337,19 @@ body.yearview .side .opt .n { display: none; }
 
     <section class="main">
       <div class="toolbar">
+        <div class="search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <label for="q" class="sr">Search charts</label>
+          <input id="q" type="search" autocomplete="off" placeholder="Search any chart, topic or standard, like fractions or RL.2.1">
+          <span class="kbd" id="kbd">/</span>
+          <button id="clear" type="button">Clear</button>
+        </div>
+      </div>
+      <div class="toolbar2">
         <button class="mobilefilters" type="button" id="openFilters">Filters</button>
         <div class="views" role="group" aria-label="View">
           <button type="button" data-view="search" aria-pressed="true">Search charts</button>
-          <button type="button" data-view="year" aria-pressed="false">Year plan</button>
-        </div>
-        <div class="search">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <label for="q" class="sr">Search charts</label>
-          <input id="q" type="search" autocomplete="off" placeholder="Search topics, charts or codes like RL.2.1">
-          <span class="kbd" id="kbd">/</span>
-          <button id="clear" type="button">Clear</button>
+          <button type="button" data-view="year" aria-pressed="false">Scope &amp; Sequence</button>
         </div>
         <span class="count" id="count"></span>
         <div class="sort"><label for="sort">Sort</label>
@@ -350,6 +366,7 @@ body.yearview .side .opt .n { display: none; }
 </div>
 
 <div class="scrim" id="scrim"></div>
+<div class="tour" id="tour" role="dialog" aria-live="polite" aria-label="Quick tour"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle"></aside>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
@@ -378,8 +395,8 @@ const SUBJ_STYLE = {
   "Math": { sc: "#6385F7", sbg: "#ECF0FE", sink: "#3550B8" },
   "Science": { sc: "#00BCD4", sbg: "#E0F7FA", sink: "#00707E" },
   "Social Studies": { sc: "#F4AE51", sbg: "#FDF1DF", sink: "#94590A" },
-  "SEL & Character": { sc: "#A97BE6", sbg: "#F3ECFC", sink: "#6B3FA8" },
-  "Classroom Management": { sc: "#2EB67D", sbg: "#E3F6ED", sink: "#1C7A4D" },
+  "SEL & Character": { sc: "#EED94A", sbg: "#FBF6D6", sink: "#5C5000" },
+  "Classroom Management": { sc: "#FF85DF", sbg: "#FFEAF8", sink: "#8A2F70" },
 };
 const KIND_LABELS = ["Full-size poster", "Mini poster", "Fill-in version", "Printable pieces"];
 const PAGE = 150;
@@ -395,6 +412,18 @@ function fwLabel(fw, subj) {
   return fw === "ccss" ? "Common Core" : fw === "ngss" ? "NGSS" : fw === "teks" ? "Texas TEKS"
     : (subj === "ELA" || subj === "Math") ? "Florida B.E.S.T." : "Florida NGSSS";
 }
+// Small subject icons in the club's clip-art style: thick dark outline, flat brand color.
+const ICO = {
+  ELA: '<path d="M3 6.5c3-1.2 6-1.2 9 .8v12c-3-2-6-2-9-.8z" fill="#E462AA"/><path d="M21 6.5c-3-1.2-6-1.2-9 .8v12c3-2 6-2 9-.8z" fill="#FF85DF"/><path d="M3 6.5c3-1.2 6-1.2 9 .8 3-2 6-2 9-.8v12c-3-1.2-6-1.2-9 .8-3-2-6-2-9-.8z M12 7.3v12" fill="none"/>',
+  Math: '<rect x="5" y="3" width="14" height="18" rx="2.5" fill="#5E82FF"/><rect x="8" y="6" width="8" height="4" rx="1" fill="#fff"/><path d="M8.5 14h1M11.5 14h1M14.5 14h1M8.5 17.5h1M11.5 17.5h1M14.5 17.5h1" stroke-width="2.6"/>',
+  Science: '<path d="M9.5 3h5M10.5 3v6L5 19a1.6 1.6 0 0 0 1.4 2h11.2A1.6 1.6 0 0 0 19 19l-5.5-10V3" fill="#fff"/><path d="M7.2 15h9.6l2.2 4a1.6 1.6 0 0 1-1.4 2H6.4A1.6 1.6 0 0 1 5 19z" fill="#00D3ED"/><path d="M9.5 3h5M10.5 3v6L5 19a1.6 1.6 0 0 0 1.4 2h11.2A1.6 1.6 0 0 0 19 19l-5.5-10V3" fill="none"/>',
+  "Social Studies": '<circle cx="12" cy="12" r="9" fill="#FFA428"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none"/>',
+  "SEL & Character": '<path d="M12 20s-8-4.6-8-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 8 2.8C20 15.4 12 20 12 20z" fill="#EED94A"/>',
+  "Classroom Management": '<path d="M6 17c1-1.5 1-4.5 1-6.5a5 5 0 0 1 10 0c0 2 0 5 1 6.5z" fill="#FF85DF"/><path d="M4.5 17h15M10.3 19.6a1.9 1.9 0 0 0 3.4 0M12 3.5v2" fill="none"/>',
+};
+const icon = (s) => `<svg class="sico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#1E1B2E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICO[toCFsafe(s)] || ""}</svg>`;
+function toCFsafe(s) { return ICO[s] ? s : (s === "Math" || s === "Science" ? s : "ELA"); }
+const subjTag = (s, label) => `<span class="subj">${icon(s)}${esc(label || s)}</span>`;
 function subjStyle(s) { const st = SUBJ_STYLE[s] || { sc: "#9B97AC", sbg: "#F1F0F5", sink: "#4A4660" }; return `--sc:${st.sc};--sbg:${st.sbg};--sink:${st.sink}`; }
 
 const FILLER = /\b(ccss|common|core|teks|ngss|ngsss|best|math|content|ela|literacy|standards?|florida|texas)\b\.?/gi;
@@ -485,7 +514,9 @@ function plan(subj, st) {
 
 const ui = { q: "", grade: "", subj: "", topic: "", mon: "", exit: false, sort: "best", shown: PAGE, sel: null, state: "", view: "search", lastGrade: "", open: new Set() };
 try { const sv = JSON.parse(localStorage.getItem("acc-finder") || "{}"); if (stateBy[sv.state]) ui.state = sv.state; if (sv.view === "year") ui.view = "year"; if (GRADES.includes(sv.lastGrade)) ui.lastGrade = sv.lastGrade; } catch (e) {}
-if (location.hash === "#year-plan") ui.view = "year";
+const YEAR_HASH = "#scope-and-sequence";
+if (window.matchMedia && matchMedia("(max-width: 620px)").matches) $("q").placeholder = "Search charts or standards";
+if (location.hash === YEAR_HASH || location.hash === "#year-plan") ui.view = "year";
 if (!UNITS.length) ui.view = "search";
 function save() { try { localStorage.setItem("acc-finder", JSON.stringify({ state: ui.state, view: ui.view, lastGrade: ui.lastGrade })); } catch (e) {} }
 function ensureGrade() { if (ui.view === "year" && !GRADES.includes(ui.grade)) ui.grade = ui.lastGrade || "K"; }
@@ -545,7 +576,7 @@ function renderFacets(qres) {
   if (!year) gItems.unshift({ val: "", label: "All grades", n: cnt("grade", () => true) });
   facet($("fGrade"), gItems, "grade");
   facet($("fSubj"), [{ val: "", label: "All subjects", n: cnt("subj", () => true) }].concat(
-    SUBJECTS.map((s) => ({ val: s, label: s, n: cnt("subj", (c) => c.subj === s), extra: `<span class="dot" style="background:${(SUBJ_STYLE[s] || {}).sc || "#9B97AC"}"></span>` }))), "subj");
+    SUBJECTS.map((s) => ({ val: s, label: s, n: cnt("subj", (c) => c.subj === s), extra: icon(s) }))), "subj");
   facet($("fMon"), MONTHS.map((m, i) => ({ val: String(i), label: m, n: cnt("mon", year ? (y) => inMonU(y.u, String(i)) : (c) => inMon(c, String(i))), after: i === NOW ? ' <span class="now">now</span>' : "" })), "mon");
   $("monClear").hidden = ui.mon === "";
   const tmap = new Map();
@@ -611,7 +642,7 @@ function render(keepScroll) {
     return pre + `<tr data-i="${c.i}" class="${ui.sel === c.i ? "sel" : ""}" tabindex="0">
       <td><div class="cline"><span class="cname">${hl(c.name, qres)}</span><a class="openlink" href="${esc(c.url || LIB)}" target="_blank" rel="noopener" title="Open this chart in the library">Open ↗</a></div><div class="ctopic">${hl(c.cats.join(" · ") || "General", qres)}${c.when ? ` · <span class="cwhen">${hl(whenText(c.when[0]), qres)}${c.when.length > 1 ? ` +${c.when.length - 1}` : ""}</span>` : ""}</div></td>
       <td class="colgrade">${gbadge(c.g)}</td>
-      <td class="colsubj"><span class="subj" style="${subjStyle(c.subj)}">${esc(c.subj)}</span></td>
+      <td class="colsubj">${subjTag(c.subj)}</td>
       <td class="colstd"><div class="codes">${shown.length ? shown.map((s) => `<span class="code${isHit(s, qres) ? " hit" : ""}" title="${esc(fwLabel(s.fw, c.subj) + ": " + s.text)}">${esc(s.code || "Note")}</span>`).join("") + (codes.length > 3 ? `<span class="more">+${codes.length - 3}</span>` : "") : NOSTD.has(c.subj) ? `<span class="none" title="SEL and classroom management charts aren't tied to academic standards">—</span>` : `<span class="none">Bonus chart</span>`}</div></td>
       <td class="colexit">${c.exit ? '<span class="xcheck" title="Has a matching exit ticket" aria-label="Has a matching exit ticket">✓</span>' : ""}</td>
     </tr>`;
@@ -630,7 +661,7 @@ function renderYear(qres, keepScroll) {
   $("loadmore").hidden = true;
   const noPlan = ui.subj && !["ELA", "Math", "Science"].includes(ui.subj);
   if (noPlan) {
-    const msg = ui.subj === "Social Studies" ? "Social Studies charts aren't in the year plan yet. Switch to Search charts to see them." : "These charts work any time of year. Switch to Search charts to see them all.";
+    const msg = ui.subj === "Social Studies" ? "Social Studies charts aren't in the Scope & Sequence yet. Switch to Search charts to see them." : "These charts work any time of year. Switch to Search charts to see them all.";
     $("count").innerHTML = "";
     $("results").innerHTML = `<div class="yearnote"><h3>${esc(ui.subj)}</h3>${esc(msg)}<br><button type="button" data-view="search">Search charts</button></div>`;
     return;
@@ -658,7 +689,7 @@ function renderYear(qres, keepScroll) {
         ${searching && !hits.length ? '<div class="nomatch">No charts match your search</div>' : `<ul class="clist">${items}</ul>${more}`}
       </article>`;
     }).join("");
-    return `<div class="yrow"><div class="slabel"><span class="subj" style="${ystyle(l)}">${esc(l)}</span></div>${cards}</div>`;
+    return `<div class="yrow"><div class="slabel">${subjTag(l)}</div>${cards}</div>`;
   }).join("");
   $("count").innerHTML = `<b>${total.toLocaleString()}</b> ${total === 1 ? "chart" : "charts"}`;
   $("results").innerHTML = total ? `<div class="year">${head}${rows}</div>`
@@ -686,7 +717,7 @@ function renderDrawer() {
   $("drawer").innerHTML = `
     <div class="dhead">
       <div class="dtop"><h2 id="dTitle">${esc(c.name)}</h2><button class="iconbtn" type="button" data-close aria-label="Close details">✕</button></div>
-      <div class="tags"><span class="tag">${gname(c.g)}</span><span class="subj" style="${subjStyle(c.subj)}">${esc(c.subj)}</span>${c.cats.map((x) => `<span class="tag">${esc(x)}</span>`).join("")}${(c.when || []).map((u) => `<span class="tag when">${esc(whenText(u))}</span>`).join("")}${c.exit ? '<span class="exit">✓ Exit ticket</span>' : ""}</div>
+      <div class="tags"><span class="tag">${gname(c.g)}</span>${subjTag(c.subj)}${c.cats.map((x) => `<span class="tag">${esc(x)}</span>`).join("")}${(c.when || []).map((u) => `<span class="tag when">${esc(whenText(u))}</span>`).join("")}${c.exit ? '<span class="exit">✓ Exit ticket</span>' : ""}</div>
     </div>
     <div class="dbody">
       ${primaryHtml}
@@ -702,22 +733,47 @@ function setView(v) {
   if (v === ui.view) return;
   ui.view = v; ui.shown = PAGE;
   if (v === "year") ensureGrade();
-  try { history.replaceState(null, "", v === "year" ? "#year-plan" : location.pathname + location.search); } catch (e) {}
+  try { history.replaceState(null, "", v === "year" ? YEAR_HASH : location.pathname + location.search); } catch (e) {}
   save(); render();
+  if (tourStep === 1 && v === "year") showTour(2);
 }
 
 const sel = $("state");
 STATES.forEach((s) => { const o = document.createElement("option"); o.value = s.abbr; o.textContent = s.state; sel.appendChild(o); });
 sel.value = ui.state;
 sel.addEventListener("change", async () => { ui.state = sel.value; save(); hideCoach(); render(true); if (STATE_FILES.has(ui.state) && !SD[ui.state]) { await loadState(ui.state); render(true); } });
-function hideCoach() { $("coach").classList.remove("show"); try { localStorage.setItem("acc-coach", "1"); } catch (e) {} }
-$("coachOk").addEventListener("click", () => { hideCoach(); sel.focus(); });
-let coachSeen = false; try { coachSeen = localStorage.getItem("acc-coach") === "1"; } catch (e) {}
-if (!ui.state && !coachSeen) $("coach").classList.add("show");
+// First-visit tour: state, then Scope & Sequence, then search.
+const TOUR = [
+  { el: () => $("statebtn"), title: "First, pick your state", text: "Choose your state and every chart will show the standard codes you use. We'll remember it for next time." },
+  { el: () => document.querySelector('.views button[data-view="year"]'), title: "See your whole year", text: "Click Scope & Sequence to see every chart month by month, along with what you're teaching right now." },
+  { el: () => $("q").closest(".search"), title: "Search for any chart", text: "Type a topic like fractions or a standard like RL.2.1, and the matching charts pop right up." },
+];
+let tourStep = -1;
+function showTour(i) {
+  document.querySelectorAll(".tourmark").forEach((e) => e.classList.remove("tourmark"));
+  if (i >= TOUR.length) { endTour(); return; }
+  tourStep = i; const t = TOUR[i], el = $("tour");
+  el.innerHTML = `<div class="tstep">Step ${i + 1} of ${TOUR.length}</div><b>${t.title}</b><p>${t.text}</p><div class="tbtns"><button type="button" class="tskip" data-tour="skip">Skip the tour</button><button type="button" class="tnext" data-tour="next">${i === TOUR.length - 1 ? "Got it" : "Next"}</button></div>`;
+  el.classList.add("show"); t.el().classList.add("tourmark"); placeTour();
+}
+function placeTour() {
+  if (tourStep < 0) return;
+  const el = $("tour"), r = TOUR[tourStep].el().getBoundingClientRect(), w = el.offsetWidth, h = el.offsetHeight;
+  const left = Math.max(12, Math.min(r.left + r.width / 2 - w / 2, innerWidth - w - 12));
+  let top = r.bottom + 12; const above = top + h > innerHeight - 8 && r.top - h - 12 > 0;
+  if (above) top = r.top - h - 12;
+  el.classList.toggle("above", above); el.style.left = left + "px"; el.style.top = top + "px";
+  el.style.setProperty("--ax", Math.max(10, Math.min(w - 22, r.left + r.width / 2 - left - 6)) + "px");
+}
+function endTour() { tourStep = -1; $("tour").classList.remove("show"); document.querySelectorAll(".tourmark").forEach((e) => e.classList.remove("tourmark")); try { localStorage.setItem("acc-tour", "1"); } catch (e) {} }
+function hideCoach() { if (tourStep === 0) showTour(1); }
+let tourSeen = false; try { tourSeen = localStorage.getItem("acc-tour") === "1"; } catch (e) {}
+if (!tourSeen) setTimeout(() => showTour(ui.state ? 1 : 0), 400);
+window.addEventListener("resize", placeTour);
 
 let tmr;
 function setQ(v) { $("q").value = v; $("clear").style.display = v ? "block" : "none"; $("kbd").style.display = v ? "none" : ""; }
-$("q").addEventListener("input", (e) => { const v = e.target.value; setQ(v); clearTimeout(tmr); tmr = setTimeout(() => { ui.q = v.trim(); ui.shown = PAGE; render(); }, 110); });
+$("q").addEventListener("input", (e) => { if (tourStep === 2) endTour(); const v = e.target.value; setQ(v); clearTimeout(tmr); tmr = setTimeout(() => { ui.q = v.trim(); ui.shown = PAGE; render(); }, 110); });
 $("clear").addEventListener("click", () => { setQ(""); ui.q = ""; render(); $("q").focus(); });
 $("sort").addEventListener("change", (e) => { ui.sort = e.target.value; render(); });
 $("fExit").addEventListener("change", (e) => { ui.exit = e.target.checked; ui.shown = PAGE; render(); });
@@ -740,6 +796,7 @@ function clearKey(k) {
   ui.shown = PAGE; render();
 }
 document.addEventListener("click", (e) => {
+  const tb = e.target.closest("[data-tour]"); if (tb) { if (tb.dataset.tour === "next") showTour(tourStep + 1); else endTour(); return; }
   const x = e.target.closest("[data-x]"); if (x) { clearKey(x.dataset.x); return; }
   const vw = e.target.closest("[data-view]"); if (vw) { setView(vw.dataset.view); return; }
   if (e.target.closest("[data-close]") || e.target === $("scrim")) { closeDrawer(); document.body.classList.remove("filters-open"); return; }
@@ -764,10 +821,10 @@ $("drawer").addEventListener("click", async (e) => {
 });
 document.addEventListener("keydown", (e) => {
   if (e.key === "/" && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); $("q").focus(); }
-  if (e.key === "Escape") { hideCoach(); if ($("modal").classList.contains("show")) $("modal").classList.remove("show"); else { closeDrawer(); document.body.classList.remove("filters-open"); } }
+  if (e.key === "Escape") { if (tourStep >= 0) { endTour(); return; } if ($("modal").classList.contains("show")) $("modal").classList.remove("show"); else { closeDrawer(); document.body.classList.remove("filters-open"); } }
 });
 $("mSources").textContent = D.sourceNote || "";
-window.addEventListener("hashchange", () => setView(location.hash === "#year-plan" ? "year" : "search"));
+window.addEventListener("hashchange", () => setView(location.hash === YEAR_HASH || location.hash === "#year-plan" ? "year" : "search"));
 
 render();
 </script>
