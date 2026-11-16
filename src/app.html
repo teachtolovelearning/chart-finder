@@ -689,7 +689,7 @@ function renderYear(qres, keepScroll) {
         ${searching && !hits.length ? '<div class="nomatch">No charts match your search</div>' : `<ul class="clist">${items}</ul>${more}`}
       </article>`;
     }).join("");
-    return `<div class="yrow"><div class="slabel">${subjTag(l)}</div>${cards}</div>`;
+    return `<div class="yrow"><div class="slabel"><span class="subj">${esc(l)}</span></div>${cards}</div>`;
   }).join("");
   $("count").innerHTML = `<b>${total.toLocaleString()}</b> ${total === 1 ? "chart" : "charts"}`;
   $("results").innerHTML = total ? `<div class="year">${head}${rows}</div>`
