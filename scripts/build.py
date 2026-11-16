@@ -91,7 +91,7 @@ def main(out, inputs):
     states = [{k: v for k, v in st.items() if k in ("state", "abbr", "ela", "math", "science")} for st in states]
     data = {"S": S, "C": C, "subjects": SUBJ, "states": states, "stateFiles": state_files, "checked": "November 2026", "Y": year,
             "sourceNote": "State matches are based on each state education department's current K–5 standards and the NSTA and Education Week standards trackers, checked November 2026. States update standards every few years, so check your state's site when a new set rolls out."}
-    tpl = open(ROOT + "/src/app.html", encoding="utf-8").read()
+    tpl = open(os.environ.get("TEMPLATE") or ROOT + "/src/app.html", encoding="utf-8").read()
     js = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     html = tpl.replace("/*__DATA__*/null", js).replace("__FAVICON__", "data:image/png;base64," + open(ROOT + "/src/favicon.clean").read().strip()).replace("__LOGO__", "data:image/webp;base64," + open(ROOT + "/src/logo.clean").read().strip())
     open(out, "w", encoding="utf-8").write(html)
