@@ -192,6 +192,49 @@ details.other .stdlist { padding: 0 12px 12px; }
 .modal .fine { font-size: 12px; color: var(--muted); }
 .linkish { border: 0; background: none; color: var(--accent-ink); font-weight: 600; font-size: 12px; padding: 0; text-decoration: underline; }
 
+
+/* View switch */
+.views { display: inline-flex; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--panel); padding: 2px; gap: 2px; flex-shrink: 0; }
+.views button { border: 0; background: none; border-radius: 6px; padding: 6px 12px; font-weight: 600; font-size: 13px; color: var(--muted); white-space: nowrap; }
+.views button:hover { color: var(--ink); }
+.views button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-ink); }
+.opt .now, .nowtag { font-size: 10.5px; font-weight: 600; color: var(--pink-ink); background: #FCEAF4; border-radius: 999px; padding: 0 7px; white-space: nowrap; }
+.ctopic .cwhen { white-space: nowrap; }
+.tag.when { background: #FCEAF4; color: var(--pink-ink); }
+body.yearview .sort, body.yearview .topicblock { display: none; }
+body.yearview #loadmore { display: none; }
+
+/* Year plan */
+.year { min-width: 1040px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.yhead, .yrow { display: grid; grid-template-columns: 104px repeat(10, minmax(0, 1fr)); }
+.yhead { position: sticky; top: 0; z-index: 3; background: #F9F8FB; border-bottom: 1px solid var(--line); border-radius: var(--radius) var(--radius) 0 0; }
+.yhead .q { grid-row: 1; text-align: center; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; padding: 8px 0 2px; border-left: 1px solid var(--line); }
+.yhead .m { grid-row: 2; text-align: center; font-size: 12px; font-weight: 600; padding: 2px 0 8px; border-left: 1px solid var(--line); }
+.yhead .m.cur { color: var(--pink-ink); }
+.yhead .m.cur::after { content: "now"; display: block; width: max-content; margin: 2px auto 0; font-size: 10px; font-weight: 600; background: #FCEAF4; color: var(--pink-ink); border-radius: 999px; padding: 0 7px; }
+.yhead .corner { grid-row: 1 / span 2; grid-column: 1; display: flex; align-items: end; padding: 0 6px 8px 10px; gap: 6px; font-weight: 600; font-size: 13px; white-space: nowrap; }
+.yrow { border-bottom: 1px solid var(--line); gap: 8px 6px; padding: 10px 6px 10px 0; }
+.yrow:last-child { border-bottom: 0; }
+.slabel { grid-column: 1; padding: 4px 8px 0 12px; }
+.slabel .subj { white-space: normal; }
+.unit { border: 1px solid var(--line); border-top: 4px solid var(--sc); border-radius: var(--radius); background: var(--panel); padding: 9px 8px 7px; min-width: 0; align-self: start; }
+.unit.cur { box-shadow: 0 0 0 2px #F7C6E1; }
+.unit.dim { opacity: .45; }
+.unit.one { padding: 9px 6px 7px; }
+.unit.one h3 { font-size: 12px; }
+.unit h3 { margin: 0; font-size: 12.5px; font-weight: 600; line-height: 1.3; overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+.umeta { display: flex; align-items: center; gap: 4px 6px; flex-wrap: wrap; font-size: 11.5px; color: var(--muted); margin: 4px 0 6px; }
+.clist { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+.clist .ych { display: flex; align-items: baseline; gap: 6px; width: calc(100% + 10px); border: 0; background: none; text-align: left; text-decoration: none; color: var(--ink); font-size: 12px; line-height: 1.35; padding: 3px 5px; margin: 0 -5px; border-radius: 5px; overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+.clist .ych:hover { background: var(--accent-soft); color: var(--accent-ink); }
+.clist .ych.sel { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+.clist .ych.ext::after { content: "↗"; margin-left: auto; color: var(--faint); font-size: 11px; }
+.showall { border: 0; background: none; color: var(--accent-ink); font-weight: 600; font-size: 12px; padding: 6px 0 0; text-align: left; }
+.nomatch { font-size: 12px; color: var(--faint); }
+.yearnote { text-align: center; padding: 40px 20px; color: var(--muted); background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.yearnote h3 { color: var(--ink); margin: 0 0 6px; font-size: 16px; font-weight: 600; }
+.yearnote button { margin-top: 12px; border: 0; background: var(--accent); color: #fff; border-radius: 6px; padding: 7px 14px; font-weight: 600; }
+
 @media (max-width: 900px) {
   .body { grid-template-columns: 1fr; }
   .side { position: fixed; inset: 0 auto 0 0; width: min(320px, 88vw); z-index: 25; transform: translateX(-102%); transition: transform .18s ease; box-shadow: var(--shadow); }
@@ -208,6 +251,16 @@ details.other .stdlist { padding: 0 12px 12px; }
   .statebtn select { max-width: none; flex: 1; }
   .sort { margin-left: 0; }
   .colexit { display: none; }
+  .year { min-width: 0; background: transparent; border: 0; }
+  .yhead { display: block; position: static; background: none; border: 0; }
+  .yhead .q, .yhead .m { display: none; }
+  .yhead .corner { padding: 0 0 4px; }
+  .yrow { display: block; padding: 0 0 6px; border: 0; }
+  .slabel { padding: 14px 0 8px; }
+  .unit { margin-bottom: 8px; }
+  .unit.one { padding: 9px 8px 7px; }
+  .unit.one h3 { font-size: 12.5px; }
+  .clist .ych { font-size: 13px; padding: 5px 5px; }
 }
 @media (max-width: 620px) {
   thead { display: none; }
@@ -221,6 +274,9 @@ details.other .stdlist { padding: 0 12px 12px; }
   .pills { padding: 0 12px 10px; }
   .brand img { height: 44px; }
   .cta { padding: 8px 10px; font-size: 12px; }
+  .views { order: 4; width: 100%; }
+  .views button { flex: 1; }
+  .search { order: 5; flex-basis: 100%; min-width: 0; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -250,17 +306,25 @@ details.other .stdlist { padding: 0 12px 12px; }
       <div class="facet" id="fGrade"></div>
       <h2>Subject</h2>
       <div class="facet" id="fSubj"></div>
+      <h2><span>Month</span><button type="button" id="monClear" hidden>Clear</button></h2>
+      <div class="facet" id="fMon"></div>
+      <div class="topicblock">
       <h2><span>Topic</span><button type="button" id="topicClear" hidden>Clear</button></h2>
       <input class="topicsearch" id="topicFind" type="search" placeholder="Filter topics" aria-label="Filter topics">
       <div class="facet topics" id="fTopic"></div>
       <h2>Extras</h2>
       <label class="toggle"><input type="checkbox" id="fExit"> Has a matching exit ticket</label>
+      </div>
       <p class="note">The numbers show how many charts each choice leaves, so you never land on an empty list.</p>
     </aside>
 
     <section class="main">
       <div class="toolbar">
         <button class="mobilefilters" type="button" id="openFilters">Filters</button>
+        <div class="views" role="group" aria-label="View">
+          <button type="button" data-view="search" aria-pressed="true">Search charts</button>
+          <button type="button" data-view="year" aria-pressed="false">Year plan</button>
+        </div>
         <div class="search">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
           <label for="q" class="sr">Search charts</label>
@@ -345,6 +409,30 @@ const CH = D.C.map(([g, s, name, cats, ids, kinds, exit, url], i) => {
     hay: (name + " " + cats.join(" ") + " " + subj + " " + stds.map((x) => x.code + " " + x.text).join(" ")).toLowerCase() };
 });
 const SUBJECTS = D.subjects.filter((s) => CH.some((c) => c.subj === s));
+
+// Year plan (Scope & Sequence). Months run Aug (0) to May (9).
+const MONTHS = ["August", "September", "October", "November", "December", "January", "February", "March", "April", "May"];
+const MS = MONTHS.map((m) => m.slice(0, 3));
+const QUARTERS = [[0, 1, "Quarter 1"], [2, 3, "Quarter 2"], [4, 6, "Quarter 3"], [7, 9, "Quarter 4"]];
+const NOW = (() => { const m = new Date().getMonth(); const i = (m + 12 - 7) % 12; return i < 10 ? i : -1; })();
+const YROWS = ["Math", "ELA & Grammar", "ELA", "Grammar", "Phonics & Word Study", "Science"];
+const YSTYLE = { "ELA & Grammar": SUBJ_STYLE.ELA, "Grammar": { sc: "#EF8DDB", sbg: "#FDEFF8", sink: "#A13A7E" }, "Phonics & Word Study": { sc: "#C2478C", sbg: "#F8E1EE", sink: "#86245C" } };
+const ystyle = (l) => { const st = YSTYLE[l] || SUBJ_STYLE[l] || { sc: "#9B97AC", sbg: "#F1F0F5", sink: "#4A4660" }; return `--sc:${st.sc};--sbg:${st.sbg};--sink:${st.sink}`; };
+const toCF = (l) => (l === "Math" || l === "Science" ? l : "ELA");
+const span = (u) => (u.a === u.b ? MONTHS[u.a] : `${MS[u.a]}–${MS[u.b]}`);
+const YD = D.Y || { units: [] };
+const UNITS = YD.units.map(([g, label, name, a, b], i) => ({ i, g, label, subj: toCF(label), name, a, b, nameL: name.toLowerCase(), items: [] }));
+const YI = [];
+UNITS.forEach((u) => YD.units[u.i][5].forEach((it) => {
+  const c = typeof it === "number" ? CH[it] : null;
+  const y = { u, c, g: u.g, subj: u.subj, name: c ? c.name : it[0], url: c ? c.url : it[1] };
+  y.nameL = y.name.toLowerCase(); u.items.push(y); YI.push(y);
+  if (c) (c.when = c.when || []).push(u);
+}));
+CH.forEach((c) => { if (c.when) { c.when.sort((x, y) => x.a - y.a || x.b - y.b); c.hay += " " + c.when.map((u) => u.nameL).join(" "); } });
+const whenText = (u) => `${span(u)} · ${u.name}`;
+const inMonU = (u, m) => m === "" || (u.a <= +m && +m <= u.b);
+const inMon = (c, m) => m === "" || (!!c.when && c.when.some((u) => inMonU(u, m)));
 const STATES = (D.states || []).slice().sort((a, b) => a.state.localeCompare(b.state));
 const stateBy = Object.fromEntries(STATES.map((s) => [s.abbr, s]));
 const STATE_FILES = new Set(D.stateFiles || []);
@@ -392,9 +480,12 @@ function plan(subj, st) {
   return { fw: [base], level: m[0], label: m[1], name: info.name || fwLabel(base, subj), why };
 }
 
-const ui = { q: "", grade: "", subj: "", topic: "", exit: false, sort: "best", shown: PAGE, sel: null, state: "" };
-try { const sv = JSON.parse(localStorage.getItem("acc-finder") || "{}"); if (stateBy[sv.state]) ui.state = sv.state; } catch (e) {}
-function save() { try { localStorage.setItem("acc-finder", JSON.stringify({ state: ui.state })); } catch (e) {} }
+const ui = { q: "", grade: "", subj: "", topic: "", mon: "", exit: false, sort: "best", shown: PAGE, sel: null, state: "", view: "search", lastGrade: "", open: new Set() };
+try { const sv = JSON.parse(localStorage.getItem("acc-finder") || "{}"); if (stateBy[sv.state]) ui.state = sv.state; if (sv.view === "year") ui.view = "year"; if (GRADES.includes(sv.lastGrade)) ui.lastGrade = sv.lastGrade; } catch (e) {}
+if (location.hash === "#year-plan") ui.view = "year";
+if (!UNITS.length) ui.view = "search";
+function save() { try { localStorage.setItem("acc-finder", JSON.stringify({ state: ui.state, view: ui.view, lastGrade: ui.lastGrade })); } catch (e) {} }
+function ensureGrade() { if (ui.view === "year" && !GRADES.includes(ui.grade)) ui.grade = ui.lastGrade || "K"; }
 
 function matchQuery(pool) {
   const raw = ui.q.toLowerCase().trim();
@@ -420,7 +511,17 @@ function matchQuery(pool) {
   return { list: out, mode: "text", tokens };
 }
 const pass = (c, skip) => (skip === "grade" || !ui.grade || inGrade(c, ui.grade)) && (skip === "subj" || !ui.subj || c.subj === ui.subj)
-  && (skip === "topic" || !ui.topic || c.topic === ui.topic) && (!ui.exit || c.exit);
+  && (skip === "topic" || !ui.topic || c.topic === ui.topic) && (!ui.exit || c.exit) && (skip === "mon" || inMon(c, ui.mon));
+// Year plan items: grade, subject, month and search apply; topic and exit ticket are search-view filters.
+function yHit(y, qres) {
+  if (qres.mode === "none") return true;
+  if (y.c && qres.set.has(y.c.i) && (qres.mode === "code" || y.c._score > 0)) return true;
+  if (qres.mode !== "text") return false;
+  const hay = y.nameL + " " + y.u.nameL;
+  return qres.tokens.every((alts) => alts.some((a) => hay.includes(a)));
+}
+const passY = (y, skip, qres) => (skip === "grade" || y.g === ui.grade) && (skip === "subj" || !ui.subj || y.subj === ui.subj)
+  && (skip === "mon" || inMonU(y.u, ui.mon)) && yHit(y, qres);
 
 function sortList(list, mode) {
   const byGrade = (a, b) => gidx(a.g) - gidx(b.g) || SUBJECTS.indexOf(a.subj) - SUBJECTS.indexOf(b.subj) || a.i - b.i;
@@ -430,16 +531,20 @@ function sortList(list, mode) {
 }
 
 function facet(el, items, key) {
-  el.innerHTML = items.map(({ val, label, n, extra }) =>
-    `<button type="button" class="opt" data-k="${key}" data-v="${esc(val)}" aria-pressed="${ui[key] === val}" ${n === 0 && ui[key] !== val ? "disabled" : ""}>${extra || ""}<span>${esc(label)}</span><span class="n">${n.toLocaleString()}</span></button>`).join("");
+  el.innerHTML = items.map(({ val, label, n, extra, after }) =>
+    `<button type="button" class="opt" data-k="${key}" data-v="${esc(val)}" aria-pressed="${ui[key] === val}" ${n === 0 && ui[key] !== val ? "disabled" : ""}>${extra || ""}<span>${esc(label)}</span>${after || ""}<span class="n">${n.toLocaleString()}</span></button>`).join("");
 }
 function renderFacets(qres) {
+  const year = ui.view === "year";
   const base = qres.list;
-  const cnt = (skip, f) => base.filter((c) => pass(c, skip) && f(c)).length;
-  facet($("fGrade"), [{ val: "", label: "All grades", n: cnt("grade", () => true) }].concat(
-    GRADES.filter((g) => CH.some((c) => c.g === g)).map((g) => ({ val: g, label: gname(g), n: cnt("grade", (c) => inGrade(c, g)), extra: `<span class="gbadge" style="--gc:${GRADE_COLOR[g]}">${gshort(g)}</span>` }))), "grade");
+  const cnt = year ? (skip, f) => YI.filter((y) => passY(y, skip, qres) && f(y)).length : (skip, f) => base.filter((c) => pass(c, skip) && f(c)).length;
+  const gItems = GRADES.filter((g) => CH.some((c) => c.g === g)).map((g) => ({ val: g, label: gname(g), n: cnt("grade", year ? (y) => y.g === g : (c) => inGrade(c, g)), extra: `<span class="gbadge" style="--gc:${GRADE_COLOR[g]}">${gshort(g)}</span>` }));
+  if (!year) gItems.unshift({ val: "", label: "All grades", n: cnt("grade", () => true) });
+  facet($("fGrade"), gItems, "grade");
   facet($("fSubj"), [{ val: "", label: "All subjects", n: cnt("subj", () => true) }].concat(
     SUBJECTS.map((s) => ({ val: s, label: s, n: cnt("subj", (c) => c.subj === s), extra: `<span class="dot" style="background:${(SUBJ_STYLE[s] || {}).sc || "#9B97AC"}"></span>` }))), "subj");
+  facet($("fMon"), MONTHS.map((m, i) => ({ val: String(i), label: m, n: cnt("mon", year ? (y) => inMonU(y.u, String(i)) : (c) => inMon(c, String(i))), after: i === NOW ? ' <span class="now">now</span>' : "" })), "mon");
+  $("monClear").hidden = ui.mon === "";
   const tmap = new Map();
   base.filter((c) => pass(c, "topic")).forEach((c) => tmap.set(c.topic, (tmap.get(c.topic) || 0) + 1));
   if (ui.topic && !tmap.has(ui.topic)) tmap.set(ui.topic, 0);
@@ -463,23 +568,31 @@ const isHit = (s, res) => res.mode === "code" && (prefixOf(res.qs, s.segs) || pr
 let lastRes = null;
 
 function render(keepScroll) {
+  ensureGrade();
+  const year = ui.view === "year";
+  document.body.classList.toggle("yearview", year);
+  document.querySelectorAll(".views button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === ui.view)));
   const st = stateBy[ui.state] || null;
   const qres = matchQuery(CH);
+  qres.set = new Set(qres.list.map((c) => c.i));
   lastRes = qres;
   renderFacets(qres);
-  const list = sortList(qres.list.filter((c) => pass(c)), qres.mode);
-  $("count").innerHTML = `<b>${list.length.toLocaleString()}</b> ${list.length === 1 ? "chart" : "charts"}`;
 
   const pills = [];
   if (ui.q) pills.push(["q", `“${ui.q}”`]);
-  if (ui.grade) pills.push(["grade", gname(ui.grade)]);
+  if (ui.grade && !year) pills.push(["grade", gname(ui.grade)]);
   if (ui.subj) pills.push(["subj", ui.subj]);
-  if (ui.topic) pills.push(["topic", ui.topic]);
-  if (ui.exit) pills.push(["exit", "Has exit ticket"]);
+  if (ui.mon !== "") pills.push(["mon", MONTHS[+ui.mon]]);
+  if (ui.topic && !year) pills.push(["topic", ui.topic]);
+  if (ui.exit && !year) pills.push(["exit", "Has exit ticket"]);
   $("pills").innerHTML = pills.map(([k, l]) => `<button type="button" class="fpill" data-x="${k}">${esc(l)}<span aria-label="Remove">✕</span></button>`).join("")
     + (pills.length > 1 ? `<button type="button" class="clearall" data-x="all">Clear all</button>` : "");
 
   $("statebtn").classList.toggle("unset", !st);
+  if (year) { renderYear(qres, keepScroll); if (ui.sel !== null) renderDrawer(); return; }
+
+  const list = sortList(qres.list.filter((c) => pass(c)), qres.mode);
+  $("count").innerHTML = `<b>${list.length.toLocaleString()}</b> ${list.length === 1 ? "chart" : "charts"}`;
 
   if (!list.length) {
     $("results").innerHTML = `<div class="empty"><h3>No charts match${ui.q ? ` “${esc(ui.q)}”` : " these filters"}</h3>Try a shorter word, a code like RL.2.1 or 3.4C, or remove a filter.<br><button type="button" data-x="all">Clear search and filters</button></div>`;
@@ -493,7 +606,7 @@ function render(keepScroll) {
     const codes = codesFor(c, st);
     const shown = codes.slice(0, 3);
     return pre + `<tr data-i="${c.i}" class="${ui.sel === c.i ? "sel" : ""}" tabindex="0">
-      <td><div class="cline"><span class="cname">${hl(c.name, qres)}</span><a class="openlink" href="${esc(c.url || LIB)}" target="_blank" rel="noopener" title="Open this chart in the library">Open ↗</a></div><div class="ctopic">${hl(c.cats.join(" · ") || "General", qres)}</div></td>
+      <td><div class="cline"><span class="cname">${hl(c.name, qres)}</span><a class="openlink" href="${esc(c.url || LIB)}" target="_blank" rel="noopener" title="Open this chart in the library">Open ↗</a></div><div class="ctopic">${hl(c.cats.join(" · ") || "General", qres)}${c.when ? ` · <span class="cwhen">${hl(whenText(c.when[0]), qres)}${c.when.length > 1 ? ` +${c.when.length - 1}` : ""}</span>` : ""}</div></td>
       <td class="colgrade">${gbadge(c.g)}</td>
       <td class="colsubj"><span class="subj" style="${subjStyle(c.subj)}">${esc(c.subj)}</span></td>
       <td class="colstd"><div class="codes">${shown.length ? shown.map((s) => `<span class="code${isHit(s, qres) ? " hit" : ""}" title="${esc(fwLabel(s.fw, c.subj) + ": " + s.text)}">${esc(s.code || "Note")}</span>`).join("") + (codes.length > 3 ? `<span class="more">+${codes.length - 3}</span>` : "") : NOSTD.has(c.subj) ? `<span class="none" title="SEL and classroom management charts aren't tied to academic standards">—</span>` : `<span class="none">Bonus chart</span>`}</div></td>
@@ -506,6 +619,48 @@ function render(keepScroll) {
   $("loadmore").textContent = `Show ${Math.min(left, PAGE)} more (${left.toLocaleString()} left)`;
   if (!keepScroll) $("tablewrap").scrollTop = 0;
   if (ui.sel !== null) renderDrawer();
+}
+
+const FOLD = 8;
+function renderYear(qres, keepScroll) {
+  const g = ui.grade;
+  $("loadmore").hidden = true;
+  const noPlan = ui.subj && !["ELA", "Math", "Science"].includes(ui.subj);
+  if (noPlan) {
+    const msg = ui.subj === "Social Studies" ? "Social Studies charts aren't in the year plan yet. Switch to Search charts to see them." : "These charts work any time of year. Switch to Search charts to see them all.";
+    $("count").innerHTML = "";
+    $("results").innerHTML = `<div class="yearnote"><h3>${esc(ui.subj)}</h3>${esc(msg)}<br><button type="button" data-view="search">Search charts</button></div>`;
+    return;
+  }
+  const rowsFor = YROWS.filter((l) => UNITS.some((u) => u.g === g && u.label === l) && (!ui.subj || toCF(l) === ui.subj));
+  const head = `<div class="yhead"><div class="corner">${gbadge(g)} ${esc(g === "K" ? "Kinder" : "Grade " + g)}</div>`
+    + QUARTERS.map(([a, b, l]) => `<div class="q" style="grid-column:${a + 2} / ${b + 3}">${l}</div>`).join("")
+    + MONTHS.map((m, i) => `<div class="m${i === NOW ? " cur" : ""}" style="grid-column:${i + 2}" title="${m}">${MS[i]}</div>`).join("") + `</div>`;
+  let total = 0;
+  const searching = qres.mode !== "none";
+  const rows = rowsFor.map((l) => {
+    const cards = UNITS.filter((u) => u.g === g && u.label === l).map((u) => {
+      const hits = u.items.filter((y) => yHit(y, qres));
+      const off = !inMonU(u, ui.mon) || (searching && !hits.length);
+      if (!off) total += hits.length;
+      const open = ui.open.has(u.i) || searching;
+      const items = (open ? hits : hits.slice(0, FOLD)).map((y) => y.c
+        ? `<li><button type="button" class="ych${ui.sel === y.c.i ? " sel" : ""}" data-i="${y.c.i}">${hl(y.name, qres)}</button></li>`
+        : `<li><a class="ych ext" href="${esc(y.url)}" target="_blank" rel="noopener" title="Opens in the member library">${hl(y.name, qres)}</a></li>`).join("");
+      const more = !open && hits.length > FOLD ? `<button type="button" class="showall" data-u="${u.i}">Show all ${hits.length} charts</button>` : "";
+      const cur = u.a <= NOW && NOW <= u.b;
+      return `<article class="unit${cur ? " cur" : ""}${off ? " dim" : ""}${u.a === u.b ? " one" : ""}" style="grid-column:${u.a + 2} / ${u.b + 3};${ystyle(l)}">
+        <h3>${hl(u.name, qres)}</h3>
+        <div class="umeta"><span>${span(u)}</span><span>·</span><span>${u.items.length} ${u.items.length === 1 ? "chart" : "charts"}</span>${cur ? '<span class="nowtag">Teaching now</span>' : ""}</div>
+        ${searching && !hits.length ? '<div class="nomatch">No charts match your search</div>' : `<ul class="clist">${items}</ul>${more}`}
+      </article>`;
+    }).join("");
+    return `<div class="yrow"><div class="slabel"><span class="subj" style="${ystyle(l)}">${esc(l)}</span></div>${cards}</div>`;
+  }).join("");
+  $("count").innerHTML = `<b>${total.toLocaleString()}</b> ${total === 1 ? "chart" : "charts"}`;
+  $("results").innerHTML = total ? `<div class="year">${head}${rows}</div>`
+    : `<div class="empty"><h3>No charts match${ui.q ? ` “${esc(ui.q)}”` : " these filters"} in ${esc(gname(g))}</h3>Try another grade or month, a shorter word, or remove a filter.<br><button type="button" data-x="all">Clear search and filters</button></div>`;
+  if (!keepScroll) $("tablewrap").scrollTop = 0;
 }
 
 function stdItems(arr, res) { return arr.map((s) => `<div class="std">${s.code ? `<div class="c">${isHit(s, res) ? `<mark>${esc(s.code)}</mark>` : esc(s.code)}</div>` : ""}<div class="t">${esc(s.text)}</div></div>`).join(""); }
@@ -528,7 +683,7 @@ function renderDrawer() {
   $("drawer").innerHTML = `
     <div class="dhead">
       <div class="dtop"><h2 id="dTitle">${esc(c.name)}</h2><button class="iconbtn" type="button" data-close aria-label="Close details">✕</button></div>
-      <div class="tags"><span class="tag">${gname(c.g)}</span><span class="subj" style="${subjStyle(c.subj)}">${esc(c.subj)}</span>${c.cats.map((x) => `<span class="tag">${esc(x)}</span>`).join("")}${c.exit ? '<span class="exit">✓ Exit ticket</span>' : ""}</div>
+      <div class="tags"><span class="tag">${gname(c.g)}</span><span class="subj" style="${subjStyle(c.subj)}">${esc(c.subj)}</span>${c.cats.map((x) => `<span class="tag">${esc(x)}</span>`).join("")}${(c.when || []).map((u) => `<span class="tag when">${esc(whenText(u))}</span>`).join("")}${c.exit ? '<span class="exit">✓ Exit ticket</span>' : ""}</div>
     </div>
     <div class="dbody">
       ${primaryHtml}
@@ -538,8 +693,15 @@ function renderDrawer() {
     <div class="dfoot">${p.nostd ? "" : `<button class="btn2" type="button" data-copy>Copy standards</button>`}<a class="cta" href="${esc(c.url || LIB)}" target="_blank" rel="noopener">Open chart ↗</a></div>`;
   document.body.classList.add("open");
 }
-function closeDrawer() { ui.sel = null; document.body.classList.remove("open"); document.querySelectorAll("tr.sel").forEach((r) => r.classList.remove("sel")); }
-function openRow(i) { ui.sel = i; document.querySelectorAll("tr.sel").forEach((r) => r.classList.remove("sel")); const tr = document.querySelector(`tr[data-i="${i}"]`); if (tr) tr.classList.add("sel"); renderDrawer(); $("drawer").querySelector("[data-close]").focus(); }
+function closeDrawer() { ui.sel = null; document.body.classList.remove("open"); document.querySelectorAll("#results .sel").forEach((r) => r.classList.remove("sel")); }
+function openRow(i) { ui.sel = i; document.querySelectorAll("#results .sel").forEach((r) => r.classList.remove("sel")); document.querySelectorAll(`#results [data-i="${i}"]`).forEach((r) => r.classList.add("sel")); renderDrawer(); $("drawer").querySelector("[data-close]").focus(); }
+function setView(v) {
+  if (v === ui.view) return;
+  ui.view = v; ui.shown = PAGE;
+  if (v === "year") ensureGrade();
+  try { history.replaceState(null, "", v === "year" ? "#year-plan" : location.pathname + location.search); } catch (e) {}
+  save(); render();
+}
 
 const sel = $("state");
 STATES.forEach((s) => { const o = document.createElement("option"); o.value = s.abbr; o.textContent = s.state; sel.appendChild(o); });
@@ -558,15 +720,17 @@ $("sort").addEventListener("change", (e) => { ui.sort = e.target.value; render()
 $("fExit").addEventListener("change", (e) => { ui.exit = e.target.checked; ui.shown = PAGE; render(); });
 $("topicFind").addEventListener("input", () => renderFacets(lastRes || matchQuery(CH)));
 $("topicClear").addEventListener("click", () => { ui.topic = ""; render(); });
+$("monClear").addEventListener("click", () => { ui.mon = ""; render(); });
 $("side").addEventListener("click", (e) => {
   const b = e.target.closest(".opt"); if (!b || b.disabled) return;
   const k = b.dataset.k, v = b.dataset.v;
-  ui[k] = ui[k] === v ? "" : v;
+  ui[k] = ui[k] === v && !(k === "grade" && ui.view === "year") ? "" : v;
+  if (k === "grade" && ui.grade) { ui.lastGrade = ui.grade; save(); }
   if (k !== "topic" && ui.topic && !CH.some((c) => c.topic === ui.topic && pass(c))) ui.topic = "";
   ui.shown = PAGE; render();
 });
 function clearKey(k) {
-  if (k === "all") { setQ(""); ui.q = ""; ui.grade = ui.subj = ui.topic = ""; ui.exit = false; $("fExit").checked = false; }
+  if (k === "all") { setQ(""); ui.q = ""; ui.grade = ui.subj = ui.topic = ui.mon = ""; ui.exit = false; $("fExit").checked = false; }
   else if (k === "q") { setQ(""); ui.q = ""; }
   else if (k === "exit") { ui.exit = false; $("fExit").checked = false; }
   else ui[k] = "";
@@ -574,11 +738,15 @@ function clearKey(k) {
 }
 document.addEventListener("click", (e) => {
   const x = e.target.closest("[data-x]"); if (x) { clearKey(x.dataset.x); return; }
+  const vw = e.target.closest("[data-view]"); if (vw) { setView(vw.dataset.view); return; }
   if (e.target.closest("[data-close]") || e.target === $("scrim")) { closeDrawer(); document.body.classList.remove("filters-open"); return; }
   if (e.target.closest("[data-info]")) { $("modal").classList.add("show"); return; }
   if (e.target === $("modal") || e.target.closest("#mClose")) { $("modal").classList.remove("show"); return; }
 });
-$("results").addEventListener("click", (e) => { const tr = e.target.closest("tr[data-i]"); if (tr) openRow(+tr.dataset.i); });
+$("results").addEventListener("click", (e) => {
+  const sa = e.target.closest(".showall"); if (sa) { ui.open.add(+sa.dataset.u); render(true); return; }
+  const tr = e.target.closest("tr[data-i], .ych[data-i]"); if (tr) openRow(+tr.dataset.i);
+});
 $("results").addEventListener("keydown", (e) => { const tr = e.target.closest("tr[data-i]"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openRow(+tr.dataset.i); } });
 $("loadmore").addEventListener("click", () => { ui.shown += PAGE; render(true); });
 $("openFilters").addEventListener("click", () => document.body.classList.add("filters-open"));
@@ -596,6 +764,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") { hideCoach(); if ($("modal").classList.contains("show")) $("modal").classList.remove("show"); else { closeDrawer(); document.body.classList.remove("filters-open"); } }
 });
 $("mSources").textContent = D.sourceNote || "";
+window.addEventListener("hashchange", () => setView(location.hash === "#year-plan" ? "year" : "search"));
 
 render();
 </script>
